@@ -1,0 +1,8 @@
+name: livre-docencia
+channels:
+  - conda-forge
+dependencies:
+  - python==3.13
+  - make
+  - tectonic==0.15.*
+  - livereload==2.7.*
