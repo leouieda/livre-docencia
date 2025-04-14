@@ -48,11 +48,8 @@
 \usepackage{doi}
 % Icon and fonts (requires using xelatex or luatex)
 \usepackage{fontawesome5}
-\usepackage{academicons}
 \usepackage{fontspec}
 \usepackage[mono]{notomath}
-% \usepackage{mathpazo}
-% \usepackage[sfdefault]{atkinson}
 % To make everything neater
 \usepackage{microtype}
 % To make fancy text boxes
@@ -61,6 +58,8 @@
 % For fancy and multipage tables
 \usepackage{tabularx}
 \usepackage{ltablex}
+% For better tables
+\usepackage{booktabs}
 % To define custom environments
 \usepackage{environ}
 \usepackage{setspace}
@@ -74,6 +73,8 @@
 \usepackage{siunitx}
 % To control what's inside and outside the book parts
 \usepackage{bookmark}
+% To get the number of pages in the document
+\usepackage{lastpage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -88,8 +89,8 @@
 % Configuration of the document
 
 \geometry{%
-  left=25mm,
-  right=25mm,
+  left=20mm,
+  right=20mm,
   top=20mm,
   bottom=15mm,
   headsep=5mm,
@@ -146,7 +147,7 @@
   \newmdenv[style=summarybox_]{summarybox_}
   \vspace{-0.5cm}
   \begin{summarybox_}
-    \footnotesize
+    \small
     \BODY
   \end{summarybox_}
 }
@@ -170,7 +171,7 @@
 % Configure headers and footers
 \newcommand{\Separator}{\hspace{3pt}|\hspace{3pt}}
 \newcommand{\HeaderFont}{\footnotesize\color{mediumgray}}
-\preto{\footrule}{\color{lightgray}}
+\preto{\headrule}{\color{lightgray}}
 \fancyhf{}
 \lhead{%
     \HeaderFont{}
@@ -183,7 +184,7 @@
     \HeaderFont{}
     \ThesisAuthor{}
     \Separator{}
-    \thepage\space de\space \pageref*{LastPage}
+    \thepage\space of\space \pageref*{LastPage}
 }
 \cfoot{}
 \renewcommand{\headrulewidth}{0.3pt}
@@ -241,58 +242,58 @@
 \noindent
 \textit{\ThesisTitle{}}.
 \\[0.2cm]
-\textcopyright{} Copyright \ThesisYear{} \ThesisAuthor{} (ORCID:
-\href{https://orcid.org/\ORCID}{\ORCID}).
+\textcopyright{} Copyright \ThesisYear{} \ThesisAuthor{}
 \\[0.2cm]
-Última modificação em \today.
-doi:\href{https://doi.org/\ThesisDOI}{\ThesisDOI}.
+Last modified on \today.
+\\[0.2cm]
+DOI: \href{https://doi.org/\ThesisDOI}{\ThesisDOI}
+\\[0.2cm]
+Author ORCID: \href{https://orcid.org/\ORCID}{\ORCID}
 
 \vspace{2.5cm}
 
 \noindent
 \textbf{\LARGE \faCreativeCommons{} \faCreativeCommonsBy{}}
 \\
-Disponível sob a
-\textbf{Licença Creative Commons Atribuição 4.0 Internacional}.
+Available under the terms of the
+\textbf{Creative Commons Attribution 4.0 Internacional} license.
 \\
-\url{https://creativecommons.org/licenses/by/4.0/deed.pt-br}
+\url{https://creativecommons.org/licenses/by/4.0/deed}
 
 \vspace{0.25cm}
 
 \noindent
-Você tem o direito de:
+You are free to:
 
 \begin{description}[labelindent=0.5cm]
-    \item[Compartilhar ---]{
-        Copiar e redistribuir o material em qualquer suporte ou formato para
-        qualquer fim, mesmo que comercial.
+    \item[Share ---]{
+        Copy and redistribute the material in any medium or format for any
+        purpose, even commercially.
     }
-    \item[Adaptar ---]{
-        Remixar, transformar, e criar a partir do material para qualquer fim,
-        mesmo que comercial.
+    \item[Adapt ---]{
+        Remix, transform, and build upon the material for any purpose, even
+        commercially.
     }
 \end{description}
 
 \vspace{0.25cm}
 
 \noindent
-De acordo com os termos seguintes:
+Under the following terms:
 
 \begin{description}[labelindent=0.5cm]
-    \item[Atribuição ---]{
-         Você deve dar o crédito apropriado, prover um link para a licença
-         e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer
-         circunstância razoável, mas de nenhuma maneira que sugira que
-         o licenciante apoia você ou o seu uso.
+    \item[Attribution ---]{
+        You must give appropriate credit, provide a link to the license, and
+        indicate if changes were made. You may do so in any reasonable manner,
+        but not in any way that suggests the licensor endorses you or your use.
     }
-    \item[Sem restrições adicionais ---]{
-        Você não pode aplicar termos jurídicos ou medidas de caráter
-        tecnológico que restrinjam legalmente outros de fazerem algo que
-        a licença permita.
+    \item[No additional restrictions ---]{
+        You may not apply legal terms or technological measures that legally
+        restrict others from doing anything the license permits.
 }
 \end{description}
 
-\vspace{1.5cm}
+\vspace{2cm}
 
 }
 
@@ -338,6 +339,24 @@ Bla.
 
 %==============================================================================
 \chapter{Magnetic microscopy inversion}
+
+\begingroup
+\input{micromag-euler-dipole/information}
+
+\begin{summarybox}
+    \noindent
+    This chapter was originally published as
+    \textbf{``Souza-Junior, G. F., Uieda, L., Trindade, R. I. F., Carmo, J. and
+        Fu, R. R. (\Year). \Title{}. \textit{\Journal{}}.
+    doi:\href{https://doi.org/\JournalDOI}{\JournalDOI}.''} under the
+    terms of the CC-BY license. It is reproduced here under these terms.
+\end{summarybox}
+
+\section*{Abstract}
+\input{micromag-euler-dipole/abstract.tex}
+
+% \input{micromag-euler-dipole/content.tex}
+\endgroup
 
 %==============================================================================
 \chapter{Iterative magnetic microscopy inversion}
