@@ -17,6 +17,7 @@
 \newcommand{\ThesisTitle}{Memorial de \ThesisAuthor{} para concurso público - Professor Doutor em Geofísica - IAG/USP}
 \newcommand{\ThesisTitleShort}{Tese de Livre Docência}
 \newcommand{\ThesisDOI}{XXXXXXXXX}
+\newcommand{\Email}{uieda@usp.br}
 \newcommand{\ORCID}{0000-0001-6123-9515}
 
 % Import packages
@@ -367,7 +368,7 @@ Bla.
     \noindent
     This chapter was originally published as the preprint
     \textbf{``Souza-Junior, G. F., Uieda, L., Trindade, R. I. F., Fu, R. R.,
-    Bellon, U. D. and Castro, Y. M. (\Year). \Title{}. \textit{EarthArXiv}.
+        Bellon, U. D. and Castro, Y. M. (\Year). \Title{}. \textit{EarthArXiv}.
     doi:\href{https://doi.org/\PreprintDOI}{\PreprintDOI}.''} under the
     terms of the CC-BY license. It is reproduced here under these terms.
     The preprint is currently under review at \textit{\Journal{}}.
