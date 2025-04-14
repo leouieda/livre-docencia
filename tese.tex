@@ -15,6 +15,8 @@
 \newcommand{\ThesisYear}{2025}
 \newcommand{\ThesisAuthor}{Leonardo Uieda}
 \newcommand{\ThesisTitle}{Memorial de \ThesisAuthor{} para concurso público - Professor Doutor em Geofísica - IAG/USP}
+\newcommand{\ThesisTitleShort}{Tese de Livre Docência}
+\newcommand{\ThesisDOI}{XXXXXXXXX}
 \newcommand{\Email}{uieda@usp.br}
 \newcommand{\ORCID}{0000-0001-6123-9515}
 
@@ -66,8 +68,6 @@
 \usepackage{nameref}
 % Better handling of footnotes inside summary boxes
 \usepackage{footmisc}
-% To have separate bibliographies per chapter
-\usepackage{chapterbib}
 % To create Algorithm floats
 \usepackage{algorithm2e}
 % To write units in a nice way
@@ -76,14 +76,16 @@
 \usepackage{bookmark}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Configuration of the document
+% Mathematical symbols
 
 % Lagrangian
 \DeclareMathOperator{\Lagr}{\mathcal{L}}
 % Merit function
 \DeclareMathOperator{\Merit}{\mathcal{M}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Configuration of the document
 
 \geometry{%
   left=25mm,
@@ -108,12 +110,11 @@
 \newcommand{\Bullet}{•\enspace}
 
 % Define custom colors
-\definecolor{lu_gray}{gray}{0.98}
-\definecolor{lu_darkgray}{gray}{0.3}
-\definecolor{lu_blue}{RGB}{32, 96, 194}
-\definecolor{lu_lightblue}{RGB}{238, 245, 250}
-\definecolor{lu_yellow}{RGB}{255, 193, 7}
-\definecolor{lu_lightyellow}{RGB}{255, 249, 230}
+\definecolor{darkgray}{gray}{0.4}
+\definecolor{mediumgray}{gray}{0.5}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{mediumblue}{HTML}{2060c2}
+\definecolor{lightblue}{HTML}{f7faff}
 
 % Customize how Chapter headings are displayed
 \titleformat{\chapter}[display]{\normalfont}{\large Chapter \thechapter}{0pt}{\huge}[\titlerule]
@@ -123,12 +124,37 @@
 \setlength{\bibsep}{0pt}
 
 % Configure captions
-\captionsetup{labelfont=bf,font={small,color=lu_darkgray},skip=0pt}
+\captionsetup{labelfont=bf,font={small,color=darkgray},skip=10pt}
+
+% Define fancy text boxes
+\NewEnviron{summarybox}{%
+  \mdfdefinestyle{summarybox_}{%
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linewidth=2pt,
+    linecolor=mediumblue,
+    backgroundcolor=lightblue,
+    innertopmargin=12pt,
+    innerbottommargin=12pt,
+    innerleftmargin=12pt,
+    innerrightmargin=12pt,
+    skipbelow=5pt,
+    skipabove=5pt,
+  }
+  \newmdenv[style=summarybox_]{summarybox_}
+  \vspace{-0.5cm}
+  \begin{summarybox_}
+    \footnotesize
+    \BODY
+  \end{summarybox_}
+}
 
 % Configure hyperref and add PDF metadata
 \hypersetup{
     colorlinks,
-    allcolors=lu_blue,
+    allcolors=mediumblue,
     pdftitle={\ThesisTitle},
     pdfauthor={\ThesisAuthor},
     pdftex,
@@ -142,10 +168,23 @@
 \interfootnotelinepenalty=10000
 
 % Configure headers and footers
+\newcommand{\Separator}{\hspace{3pt}|\hspace{3pt}}
+\newcommand{\HeaderFont}{\footnotesize\color{mediumgray}}
+\preto{\footrule}{\color{lightgray}}
 \fancyhf{}
-\lhead{\fontsize{9pt}{0}\selectfont\itshape \nouppercase\leftmark}
+\lhead{%
+    \HeaderFont{}
+    \nouppercase\leftmark{}
+    \Separator{}
+    \ThesisTitleShort{}
+}
 \chead{}
-\rhead{\fontsize{9pt}{0}\selectfont \thepage}
+\rhead{%
+    \HeaderFont{}
+    \ThesisAuthor{}
+    \Separator{}
+    \thepage\space de\space \pageref*{LastPage}
+}
 \cfoot{}
 \renewcommand{\headrulewidth}{0.3pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,33 +197,33 @@
 
 \begin{titlepage}
   \begin{center}
-    \includegraphics[height=2cm]{images/logo.pdf}
+    \includegraphics[height=1.5cm]{images/usp.png}
+    \hspace{1cm}
+    \includegraphics[height=1.5cm]{images/iag.png}
     \vspace{1cm}
-
-    CONCURSO PÚBLICO
-
-    PROFESSOR DOUTOR (RDIDP) EM MÉTODOS POTENCIAIS
 
     UNIVERSIDADE DE SÃO PAULO
+
+    INSTITUTO DE ASTRONOMIA, GEOFÍSICA E CIÊNCIAS ATMOSFÉRICAS
     \vspace{5cm}
 
-    \textbf{\LARGE MEMORIAL}
-    \vspace{1cm}
+    \textbf{\huge \ThesisTitle}
+    \vspace{2cm}
 
-    \textbf{\LARGE \MakeUppercase{\ThesisAuthor{}}}
+    {\Large \ThesisAuthor}
     \vspace{5cm}
 
     {\small
-      Apresentado para concurso público de títulos e provas para cargo de
+      Tese apresentada para concurso títulos e provas visando a obtenção do
 
-      Professor Doutor junto ao Departamento de Geofísica do
+      título de Livre Docente junto ao Departamento de Geofísica do
 
       Instituto de Astronomia, Geofísica e Ciências Atmosféricas da
 
       Universidade de São Paulo.
       \vspace{1cm}
 
-      Edital ATAc-IAG/044/2022
+      Edital ATAc-IAG/005/2025
     }
     \vfill
 
@@ -195,7 +234,67 @@
 
 %==============================================================================
 
-Copyright and license. Use Santi's template.
+{\small
+
+\vspace*{\fill}
+
+\noindent
+\textit{\ThesisTitle{}}.
+\\[0.2cm]
+\textcopyright{} Copyright \ThesisYear{} \ThesisAuthor{} (ORCID:
+\href{https://orcid.org/\ORCID}{\ORCID}).
+\\[0.2cm]
+Última modificação em \today.
+doi:\href{https://doi.org/\ThesisDOI}{\ThesisDOI}.
+
+\vspace{2.5cm}
+
+\noindent
+\textbf{\LARGE \faCreativeCommons{} \faCreativeCommonsBy{}}
+\\
+Disponível sob a
+\textbf{Licença Creative Commons Atribuição 4.0 Internacional}.
+\\
+\url{https://creativecommons.org/licenses/by/4.0/deed.pt-br}
+
+\vspace{0.25cm}
+
+\noindent
+Você tem o direito de:
+
+\begin{description}[labelindent=0.5cm]
+    \item[Compartilhar ---]{
+        Copiar e redistribuir o material em qualquer suporte ou formato para
+        qualquer fim, mesmo que comercial.
+    }
+    \item[Adaptar ---]{
+        Remixar, transformar, e criar a partir do material para qualquer fim,
+        mesmo que comercial.
+    }
+\end{description}
+
+\vspace{0.25cm}
+
+\noindent
+De acordo com os termos seguintes:
+
+\begin{description}[labelindent=0.5cm]
+    \item[Atribuição ---]{
+         Você deve dar o crédito apropriado, prover um link para a licença
+         e indicar se mudanças foram feitas. Você deve fazê-lo em qualquer
+         circunstância razoável, mas de nenhuma maneira que sugira que
+         o licenciante apoia você ou o seu uso.
+    }
+    \item[Sem restrições adicionais ---]{
+        Você não pode aplicar termos jurídicos ou medidas de caráter
+        tecnológico que restrinjam legalmente outros de fazerem algo que
+        a licença permita.
+}
+\end{description}
+
+\vspace{1.5cm}
+
+}
 
 %==============================================================================
 \chapter*{Abstract}
@@ -214,35 +313,59 @@ Bla.
 Bla.
 
 %==============================================================================
-\part{Equivalent sources}
-
 \chapter{Gradient-boosted equivalent sources}
 
+\begingroup
+\input{eql-gradient-boosted/variables}
+
+\begin{summarybox}
+    \noindent
+    This chapter was originally published as
+    \textbf{``Soler, S. R. and Uieda, L. (\Year). \Title{}. \textit{\Journal{}}.
+    doi:\href{https://doi.org/\DOI}{\DOI}.''}, which was previously published
+    as a preprint on EarthArXiv (\url{https://doi.org/\PreprintDOI}) under the
+    terms of the CC-BY license. It is reproduced here under these terms.
+\end{summarybox}
+
+\section*{Abstract}
+\input{eql-gradient-boosted/abstract.tex}
+
+% \input{eql-gradient-boosted/content.tex}
+\endgroup
+
+%==============================================================================
 \chapter{Dual-layer magnetic equivalent sources}
 
 %==============================================================================
-\part{Magnetic microscopy}
-
 \chapter{Magnetic microscopy inversion}
 
+%==============================================================================
 \chapter{Iterative magnetic microscopy inversion}
 
 %==============================================================================
-\part{Inversion of magnetic data}
-
 \chapter{Euler inversion}
 
 \begingroup
 \input{euler-inversion/information}
 \input{euler-inversion/variables}
 
-This is the paper ``\Title{}'' published in \textit{\Journal}.
+\begin{summarybox}
+    \noindent
+    This chapter was originally published as
+    \textbf{``Uieda, L., Souza-Junior, G. F., Uppal, I. and Oliveira Jr., V. C.
+    (\Year). \Title{}. \textit{\Journal{}}.
+    doi:\href{https://doi.org/\JournalDOI}{\JournalDOI}.''} under the
+    terms of the CC-BY license. It is reproduced here under these terms.
+\end{summarybox}
 
-\input{euler-inversion/contents.tex}
+\section*{Abstract}
+\input{euler-inversion/abstract.tex}
+
+% \input{euler-inversion/contents.tex}
 \endgroup
 
 %==============================================================================
-\bookmarksetup{startatroot}
+% \bookmarksetup{startatroot}
 \chapter{Conclusion}
 
 Bla.
