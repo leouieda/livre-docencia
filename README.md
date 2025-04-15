@@ -2,6 +2,8 @@
 
 > Tese apresentada para concurso títulos e provas visando a obtenção do título de Livre Docente junto ao Departamento de Geofísica do Instituto de Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São Paulo. Edital ATAc-IAG/005/2025.
 
+Published on figshare: https://doi.org/10.6084/m9.figshare.28791908
+
 Thesis presented to the Universidade de São Paulo to obtain the title of "Livre Docente". This is a compilation of other papers that all have been published under a CC-BY license:
 
 * Soler, S. R. and Uieda, L. (2021). Gradient-boosted equivalent sources. Geophysical Journal International. https://doi.org/10.1093/gji/ggab297.
