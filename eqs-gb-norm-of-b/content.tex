@@ -4,7 +4,21 @@
 
 Potential field data often need to be interpolated onto a regular grid at constant height before further application, such as modelling crustal structures and geological interpretation. However, many gridding methods do not consider the variable survey heights which are typical of airborne data. Additionally, most methods do not take advantage of the fact that potential fields are harmonic functions. For example, the total field magnetic anomaly is harmonic when the magnitude of the anomalous field is much smaller than the magnitude of the geomagnetic field, which is true for most instances in which the total field anomaly is observed \citep{Blakley1995}.
 
-A widely used approach that addresses these issues is the equivalent sources (also known as equivalent layer) technique, first introduced by \citet{Dampney1969} and based on potential theory \citep{Kellogg1967}. This method approximates any harmonic function as the sum of discrete point source effects, which are then used to predict the potential field in unobserved locations. However, estimating the source coefficients that best fit the observed data is computationally demanding and inherently non-unique. Since its introduction, numerous adaptations of the EQS Technique have been developed to improve the computational efficiency and accuracy, such as: \citet{Leao1989}, \citet{Cordell1992}, \citet{Mendona1994}, \citet{Guspi2009}, \citet{Li2010}, \citet{OliveiraJr2013}, \citet{Siqueira2017}, \citet{Jirigalatu2019}, \citet{Mendona2020}, \citet{Li2020}, \citet{Soler2021}, \citet{Takahashi2022} and \citet{Piauilino2024}. A comprehensive review of the equivalent sources technique was undertaken by \citet{OliveiraJr2023} and we refer readers to it for more information.
+A widely used approach that addresses these issues is the equivalent sources
+(also known as equivalent layer) technique, first introduced by
+\citet{dampney1969} and based on potential theory \citep{Kellogg1967}. This
+method approximates any harmonic function as the sum of discrete point source
+effects, which are then used to predict the potential field in unobserved
+locations. However, estimating the source coefficients that best fit the
+observed data is computationally demanding and inherently non-unique. Since its
+introduction, numerous adaptations of the EQS Technique have been developed to
+improve the computational efficiency and accuracy, such as: \citet{Leao1989},
+\citet{cordell1992}, \citet{Mendona1994}, \citet{Guspi2009}, \citet{Li2010},
+\citet{OliveiraJr2013}, \citet{Siqueira2017}, \citet{Jirigalatu2019},
+\citet{Mendona2020}, \citet{Li2020}, \citet{Soler2021}, \citet{Takahashi2022}
+and \citet{Piauilino2024}. A comprehensive review of the equivalent sources
+technique was undertaken by \citet{OliveiraJr2023} and we refer readers to it
+for more information.
 
 For magnetic data in particular, the recent study of \citet{Li2020} identified that incorporating an additional deeper layer of equivalent sources improved the accuracy of the predictions, particularly for the long-wavelength components. \citet{Li2020} fit both shallow and deep equivalent source layers to the observed data simultaneously using prisms as the sources. This required a depth-weighing factor to prevent the shallow layer coefficients from dominating, due to the sensitivity matrix elements of the shallow layer being much larger than those associated with the deep layer.Fitting both layers at once also significantly increases the computational cost of the inversion.
 
@@ -37,7 +51,7 @@ The observed total field anomaly ($\Delta T$) is the difference between the meas
 \end{equation}
 
 \noindent
-The total magnetic field ($\vec{\mathbf{T}}$) is the sum of the anomalous magnetic field vector ($\vec{\mathbf{B}}$) and the regional field vector ($\vec{\mathbf{F}}$) \citep{Blakley1995, Langel1998, OliveiraJr2015}. The total field anomaly ($\Delta T$) can therefore be given by
+The total magnetic field ($\vec{\mathbf{T}}$) is the sum of the anomalous magnetic field vector ($\vec{\mathbf{B}}$) and the regional field vector ($\vec{\mathbf{F}}$) \citep{Blakley1995, Langel1998, Oliveira2015Estimation}. The total field anomaly ($\Delta T$) can therefore be given by
 \begin{equation}
     \Delta T = \vert \vec{\mathbf{F}} + \vec{\mathbf{B}} \vert - \vert \vec{\mathbf{F}} \vert
     \ .
@@ -52,12 +66,12 @@ For the majority of crustal anomalies measured by airborne and shipborne surveys
 \end{equation}
 
 \noindent
-in which $\hat{\mathbf{F}}$ is a unit vector in the same direction as the regional field. Thus, $\Delta T$ is approximately a harmonic function \citep{Blakley1995,OliveiraJr2015}.
+in which $\hat{\mathbf{F}}$ is a unit vector in the same direction as the regional field. Thus, $\Delta T$ is approximately a harmonic function \citep{Blakley1995,Oliveira2015Estimation}.
 
 
 \subsection{Equivalent source technique}
 
-The equivalent source technique assumes any harmonic function \textcolor{orange}{$d(x, y, z)$} can be approximated by the sum of $M$ discrete point source effects \citep{Dampney1969, Cordell1992}:
+The equivalent source technique assumes any harmonic function \textcolor{orange}{$d(x, y, z)$} can be approximated by the sum of $M$ discrete point source effects \citep{dampney1969, cordell1992}:
 
 \begin{equation}
 \label{eq:eqs_technique}
@@ -338,13 +352,24 @@ for $L$ number of testing points. This BK-CV process is iterated until all the f
     \label{alg:BK-CV}
 \end{algorithm}
 
-To determine the optimal hyper-parameters for each layer, a range of values for damping and relative depth is systematically generated. \citet{Dampney1969} suggests bounds of 2.5 to 6 times the average distance to the nearest neighbouring data points for the relative depth of equivalent sources. This range is utilised for the deep equivalent sources to ensure the regional long-wavelength signals are captured. For the shallow layer, a range of relative depths between the data heights and the deep layer are employed. Additionally, a range of $1 \times 10^{-10} \text{ to } 1 \times 10^{10}$ is used for the damping parameter $\mu$ (see Equation~\ref{eq:goal_function}). Once these ranges are defined, a comprehensive set of all the possible combinations of these hyper-parameters is created. For each combination, the BK-CV method (Algorithm~\ref{alg:BK-CV}) is employed to determine the corresponding BK-CV RMSE, which serves as the performance metric. The combination that yields the smallest BK-CV RMSE is then selected as the optimal set of parameters for the final equivalent source model.
+To determine the optimal hyper-parameters for each layer, a range of values for damping and relative depth is systematically generated. \citet{dampney1969} suggests bounds of 2.5 to 6 times the average distance to the nearest neighbouring data points for the relative depth of equivalent sources. This range is utilised for the deep equivalent sources to ensure the regional long-wavelength signals are captured. For the shallow layer, a range of relative depths between the data heights and the deep layer are employed. Additionally, a range of $1 \times 10^{-10} \text{ to } 1 \times 10^{10}$ is used for the damping parameter $\mu$ (see Equation~\ref{eq:goal_function}). Once these ranges are defined, a comprehensive set of all the possible combinations of these hyper-parameters is created. For each combination, the BK-CV method (Algorithm~\ref{alg:BK-CV}) is employed to determine the corresponding BK-CV RMSE, which serves as the performance metric. The combination that yields the smallest BK-CV RMSE is then selected as the optimal set of parameters for the final equivalent source model.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Synthetic data application}
 
-To assess the accuracy of the interpolations, the method was applied to synthetic datasets containing magnetic sources with varying shapes, sizes, depths and induced magnetisations. To ensure consistency with real-world conditions, the synthetic dataset was simulated using the flight lines from the ICEGRAV 2013 aeromagnetic dataset \citep{ICEGRAV_data}, as detailed in Section~\ref{sec:real_application}. These flight line coordinates were projected using the Universal Polar Stereographic (UPS) projection, specifically for the South Pole region. The Earth's main magnetic field direction was set to match the IGRF orientation at the time of the original measurements, with an inclination of -65$^\circ$ and declination of 35$^\circ$, consistent with the real aeromagnetic dataset. A regional magnetic field was modelled using the ``checkerboard'' function of Verde  \citep{verde} on a regularly spaced grid covering the entire survey area, located at 60 km beneath the surface with an oscillating height of 15 km amplitude. The magnetisation for the regional field was specified to have an inclination of -50$^\circ$, declination of 40$^\circ$ and magnitude of $5 \times 10^{12}$Am$^2$. A zero-mean pseudo-random Gaussian noise, with a standard deviation of 5 nT, was also applied to the regional field. Additionally, a deep dipole was added to study the effects of a truncated long-wavelength signal (see Section~\ref{sec:truncated_regional} for further details). This dipole was placed at coordinates (2250 km, 2730 km, -70 km), with a magnetisation of 55$^\circ$ inclination, 45$^\circ$ declination and $2 \times 10^{13}$Am$^2$ magnitude. The descriptions of the shallower synthetic sources can be found in Table~\ref{table:shallow_sources}, in which the characteristics of their shape, location and magnetisation are outlined.
+To assess the accuracy of the interpolations, the method was applied to
+synthetic datasets containing magnetic sources with varying shapes, sizes,
+depths and induced magnetisations. To ensure consistency with real-world
+conditions, the synthetic dataset was simulated using the flight lines from the
+ICEGRAV 2013 aeromagnetic dataset \citep{ICEGRAV_data}, as detailed in
+Section~\ref{sec:real_application}. These flight line coordinates were
+projected using the Universal Polar Stereographic (UPS) projection,
+specifically for the South Pole region. The Earth's main magnetic field
+direction was set to match the IGRF orientation at the time of the original
+measurements, with an inclination of -65$^\circ$ and declination of 35$^\circ$,
+consistent with the real aeromagnetic dataset. A regional magnetic field was
+modelled using the ``checkerboard'' function of Verde  \citep{verde2018} on a regularly spaced grid covering the entire survey area, located at 60 km beneath the surface with an oscillating height of 15 km amplitude. The magnetisation for the regional field was specified to have an inclination of -50$^\circ$, declination of 40$^\circ$ and magnitude of $5 \times 10^{12}$Am$^2$. A zero-mean pseudo-random Gaussian noise, with a standard deviation of 5 nT, was also applied to the regional field. Additionally, a deep dipole was added to study the effects of a truncated long-wavelength signal (see Section~\ref{sec:truncated_regional} for further details). This dipole was placed at coordinates (2250 km, 2730 km, -70 km), with a magnetisation of 55$^\circ$ inclination, 45$^\circ$ declination and $2 \times 10^{13}$Am$^2$ magnitude. The descriptions of the shallower synthetic sources can be found in Table~\ref{table:shallow_sources}, in which the characteristics of their shape, location and magnetisation are outlined.
 
 \begin{table}[tb!]
 \centering
@@ -482,7 +507,13 @@ The use of block K-Fold cross-validation has proven beneficial in narrowing the 
 \section*{Data availability statement}
 
 The Python source code used to produce all of the results and figures presented here are available at \url{https://github.com/\GitHubRepository} and
-\url{https://doi.org/\ArchiveDOI} under the CC-BY license and the MIT open-source license. This study also made use of the following open-source scientific software: Numpy \citep{numpy} for linear algebra, matplotlib \citep{matplotlib} and PyGMT \citep{pygmt} for generating figures and maps, pyproj \citep{pyproj} for data projection, Pandas \citep{pandas} for manipulating tabular data, xarray \citep{xarray} for working with gridded data, Verde \citep{verde} for the moving windows and interpolation and Harmonica \citep{harmonica} for potential-field data processing and modelling. The aeromagnetic data are available from the British Antarctic Survey \citep{ICEGRAV_data} under the UK Open Government Licence V3.0.
+\url{https://doi.org/\ArchiveDOI} under the CC-BY license and the MIT
+open-source license. This study also made use of the following open-source
+scientific software: Numpy \citep{numpy} for linear algebra, matplotlib
+\citep{Hunter2007} and PyGMT \citep{pygmt} for generating figures and maps,
+pyproj \citep{pyproj} for data projection, Pandas \citep{pandas} for
+manipulating tabular data, xarray \citep{xarray} for working with gridded data,
+Verde \citep{verde2018} for the moving windows and interpolation and Harmonica \citep{harmonica} for potential-field data processing and modelling. The aeromagnetic data are available from the British Antarctic Survey \citep{ICEGRAV_data} under the UK Open Government Licence V3.0.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}

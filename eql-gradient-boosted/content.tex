@@ -39,8 +39,8 @@ of finite elementary sources to the data and using this model to predict new
 data values.
 Besides interpolation, equivalent sources have been used for
 reduction-to-the-pole of magnetic data
-\citep{silva1986, nakatsuka2006, guspi2009}, upward
-continuation \citep{emilia1973, li2010}, joint processing of gravity gradient
+\citep{silva1986, nakatsuka2006, Guspi2009}, upward
+continuation \citep{emilia1973, Li2010}, joint processing of gravity gradient
 data \citep{barnes2011}, modelling the lithospheric magnetic field
 \citep{kother2015}, recovering the magnetic induction vector from
 total-field magnetic anomalies \citep{li2020}, and more.
@@ -62,9 +62,9 @@ The key factors that vary between them are: (i) the type of source, (ii)
 the location of the sources, and (iii) the solution strategy.
 
 The most commonly used type of source is a point mass for gravity or dipole for
-magnetics \citep[e.g.,~][]{vonfrese1981, silva1986, mendonca1994,
-siqueira2017}.
-However, right-rectangular prisms \citep[e.g.,][]{barnes2011, jirigalatu2019,
+magnetics \citep[e.g.,~][]{vonfrese1981, silva1986, Mendona1994,
+Siqueira2017}.
+However, right-rectangular prisms \citep[e.g.,][]{barnes2011, Jirigalatu2019,
 li2020} and tesseroids \citep{bouman2016} have also been used successfully.
 In fact, even point sources with a simple inverse distance function, instead of
 actual gravity or magnetic fields, can be used as
@@ -72,9 +72,9 @@ equivalent sources \citep{cordell1992}.
 
 The location of sources often follows one of two strategies.
 The most common approach is to distribute sources on a regular grid at a
-constant depth \citep[e.g.,~][]{leao1989, barnes2011, oliveira2013}.
+constant depth \citep[e.g.,~][]{Leao1989, barnes2011, OliveiraJr2013}.
 Alternatively, sources can be placed beneath each data point
-\citep[e.g.,~][]{cordell1992, siqueira2017}.
+\citep[e.g.,~][]{cordell1992, Siqueira2017}.
 Some recent work by \citet{li2020} places the sources in two overlapping layers
 at different depths.
 
@@ -82,29 +82,29 @@ The coefficients of the equivalent source model are often estimated through
 damped least-squares.
 This imposes a heavy computational load when the number of data points is
 large (e.g., airborne and satellite surveys).
-To reduce the computational load, \citet{mendonca1994} built the solution
+To reduce the computational load, \citet{Mendona1994} built the solution
 iteratively by incorporating one data point at a time using the ``equivalent
 data concept''.
-\citet{leao1989} processed the input data using a moving window, only fitting the
+\citet{Leao1989} processed the input data using a moving window, only fitting the
 data inside the window and predicting observations at its center.
-\citet{li2010} and \citet{barnes2011} apply different operations to generate a
+\citet{Li2010} and \citet{barnes2011} apply different operations to generate a
 sparse representation of the sensitive matrix (respectively, wavelet
 compression and quadtree discretization), which significantly improves the
 speed of the least-squares solution.
-\citet{oliveira2013} parametrized the equivalent layer as a piecewise bivariate
+\citet{OliveiraJr2013} parametrized the equivalent layer as a piecewise bivariate
 polynomial function, reducing the number of parameters in the solution.
-\citet{siqueira2017} developed an iterative solution in which the sensitivity
+\citet{Siqueira2017} developed an iterative solution in which the sensitivity
 matrix is transformed into a diagonal matrix with constant terms through the
 ``excess mass criterion''.
-\citet{jirigalatu2019} applied the Gauss-FFT method to speed up the forward
+\citet{Jirigalatu2019} applied the Gauss-FFT method to speed up the forward
 modelling operations and solved the least-squares problem using steepest
 descent to avoid calculating the Hessian matrix and solving linear systems.
 
 Many of the existing methods solve under-determined problems, requiring a much
 larger number of equivalent sources than the number of data points.
 Some achieve greater efficiency by restricting their applications
-to specific data types \citep{siqueira2017},
-interpolating only on regular grids \citep{leao1989},
+to specific data types \citep{Siqueira2017},
+interpolating only on regular grids \citep{Leao1989},
 or requiring already gridded data \citep{takahashi2020},
 to name a few.
 Furthermore, many of the optimizations proposed are also complex to implement
@@ -133,7 +133,7 @@ The gradient boosting algorithm allows us to fit the equivalent source model
 iteratively by operating on individual overlapping windows.
 As a result, our method solves several much smaller least-squares problems
 instead of a large one.
-This has some similarities with the strategy used by \citet{leao1989} but
+This has some similarities with the strategy used by \citet{Leao1989} but
 without the requirement for sources and predictions to be on regular grids.
 
 Through tests on synthetic data, we show that:
@@ -541,7 +541,7 @@ locating one source below each data point.
   \label{alg:gradient_boosting_window}
 \end{algorithm}
 
-\begin{figure*}[tb]
+\begin{figure*}[tb!]
     \centering
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/gradient-boosting-schematics.pdf}
     \caption{
@@ -634,7 +634,7 @@ gridded products.
 
 \subsubsection{Horizontal source layouts}
 
-\begin{figure*}[tb]
+\begin{figure*}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/source-layouts-schematics.pdf}
     \caption{
         Sketch of different horizontal layouts for equivalent source models.
@@ -722,7 +722,7 @@ equivalent sources.
 
 \subsubsection{Depth of sources}
 
-\begin{figure*}[tb]
+\begin{figure*}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/depth_types.pdf}
     \caption{
         Examples of different strategies for assigning depths to equivalent
@@ -775,7 +775,7 @@ Here, we will highlight the following (Fig.~\ref{fig:depth_types}):
     The depths of sources are proportional to the horizontal distance to the
     nearest neighbouring data points or sources (Fig.~\ref{fig:depth_types}c).
     Different variations of this strategy have been proposed before, for
-    example \citet{cordell1992}, \citet{guspi2004}, and \citet{guspi2009}.
+    example \citet{cordell1992}, \citet{guspi2004}, and \citet{Guspi2009}.
     The rationale for this strategy is that if a survey has data points
     clustered in some areas, we may
     want the sources below those areas to be shallower in order to preserve the
@@ -812,7 +812,7 @@ these strategies on synthetic data.
 
 \section{Tests on synthetic data}
 
-\begin{figure*}[tb]
+\begin{figure*}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/synthetic-survey-layouts.pdf}
     \caption{
         Observation heights and gravity values for the synthetic ground (a-b)
@@ -824,7 +824,7 @@ these strategies on synthetic data.
     \label{fig:synthetic-layouts}
 \end{figure*}
 
-\begin{figure}[tb]
+\begin{figure}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/target-grid.pdf}
     \caption{
         Pseudo-color map of the target grid of synthetic gravity data. The grid
@@ -1003,7 +1003,7 @@ Fig.~\ref{fig:gradient-boosted-comparison}c shows the computation time
 required for estimating the source coefficients, both as functions of
 the window size.
 
-\begin{figure*}[tb]
+\begin{figure*}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/gradient-boosted-comparisons.pdf}
     \caption{
         Interpolation RMS error (a-b) and relative computation time (c-d) for
@@ -1093,7 +1093,7 @@ gradient-boosting iterations, we preformed the interpolation once more using
 the same values of \emph{damping} and \emph{depth} but this time iterating over
 windows in sequential order (South to North, West to East).
 
-\begin{figure}[tb]
+\begin{figure}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/eql-boost-airborne.pdf}
     \caption{
         Interpolation error for gradient-boosted equivalent sources using
@@ -1240,7 +1240,7 @@ and predicted gravity disturbances.
 The inset figure shows a histogram of these residuals, which are approximately
 normally distributed around zero.
 
-\begin{figure}[tb]
+\begin{figure}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/australia-residuals.png}
     \caption{
         Residuals. Differences between the gravity disturbance data from
@@ -1426,7 +1426,7 @@ other equivalent source methods.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Data and code availability}
+\section*{Data and code availability}
 
 The Python source code used to produce all results and figures presented here
 is available at
@@ -1440,15 +1440,15 @@ Other software used in this study includes:
 Pooch \citep{pooch2020} for downloading and caching datasets,
 Verde \citep{verde2018} for block reductions and coordinate manipulations,
 Boule \citep{boule2020} for normal gravity calculations,
-xarray \citep{xarray2017} and Numpy \citep{numpy2020} for handling
+xarray \citep{xarray2017} and Numpy \citep{numpy} for handling
 multidimensional arrays and numerical computations,
 Numba \citep{numba2015} for just-in-time compilation and parallelization,
 scikit-learn \citep{sklearn2011} for cross-validation,
-Matplotlib \citep{matplotlib2007} and PyGMT \citep{pygmt2020} for generating
+Matplotlib \citep{Hunter2007} and PyGMT \citep{pygmt2020} for generating
 the figures and maps,
 and the Jupyter notebook programming environment \citep{jupyter2016}.
 Harmonica, Boule, Pooch, and Verde are part of the Fatiando a Terra project
-\citep{fatiando2013}.
+\citep{Uieda2013}.
 
 All datasets used are open-access and publicly available.
 The synthetic surveys were generated using
@@ -1470,7 +1470,7 @@ was filtered and referenced to the WGS84 ellipsoid by
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Acknowledgements}
+\section*{Acknowledgements}
 
 We are indebted to the developers and maintainers of the open-source software
 without which this work would not have been possible.

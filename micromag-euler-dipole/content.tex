@@ -139,7 +139,7 @@ $f(x, y, z - \Delta z)$ are calculated by upward and downward continuation,
 respectively, performed in the wavenumber domain. The 2D maps of the $x$, $y$,
 and $z$ derivatives will also be used in the Euler Deconvolution step described
 below, which is known to be highly sensitive to noise in the derivatives
-\citep{Saleh2012Applying}. This is why we prefer the finite-differences-based
+\citep{Saleh2012}. This is why we prefer the finite-differences-based
 derivatives, which are less prone to amplifying short-wavelength noise than
 those calculated in the wavenumber domain through the Fast Fourier Transform
 (FFT).
@@ -183,7 +183,7 @@ under a dipolar approximation. This technique was first proposed by
 dimensions and renamed ``Euler Deconvolution'' by \citet{Reid1990}. ED is
 traditionally performed on a set of moving windows that scan the entire
 dataset, producing a large scatter of position estimates, most of which are
-spurious \citep{Silva20033D}. This is only done because it is impractical to
+spurious \citep{Silva2003}. This is only done because it is impractical to
 segment an aeromagnetic dataset into individual anomalies. Fortunately,
 magnetic microscopy images often contain fewer elongated features (\textit{e.g.}, dikes and
 suture zones) and regional signals (\textit{e.g.}, Curie depth variations) that are
@@ -867,7 +867,7 @@ Working with potential field data is challenging due to the ambiguity inherent t
 One way to circumvent the ambiguity is to incorporate prior information about the subsurface structure, such as the position of the source of magnetization.
 \citet{Oliveira2015Estimation} showed that the magnetization direction recovered by a least-squares inversion with a spherical approximation is sensitive to variations in the horizontal coordinates of the center of the magnetic sources, but is practically insensitive to variations in depth.
 They propose the Euler deconvolution method as an adequate technique to estimate the central positions that will be used as prior information for inversion.
-This occurs mainly because the recovery of the source's horizontal coordinates is considerably accurate, while the vertical coordinate can undergo greater variation even though it still provides satisfactory results \citep{Silva20033D, Melo2013}.
+This occurs mainly because the recovery of the source's horizontal coordinates is considerably accurate, while the vertical coordinate can undergo greater variation even though it still provides satisfactory results \citep{Silva2003, Melo2013}.
 This remark is also better observed in our simple synthetic sample where the estimated horizontal positions are close to the true values, which implies small misfit values in the recovered magnetic directions.
 Although the estimated magnetic moment amplitude for said sample is satisfactory, this parameter is more affected by the variations in the depth of the source due to the inherent ambiguity between depth and moment amplitude.
 
@@ -938,15 +938,15 @@ The image re-scaling and blob detection through the Laplacian of Gaussian
 method were performed with the scikit-image library \citep{VanderWalt2014}.
 We also used matplotlib \citep{Hunter2007} and mplstereonet \citep{mplstereonet}
 for generating figures and stereograms.
-Basic calculations were performed using Numpy \citep{Harris2020} and Scipy
-\citep{2020SciPy-NMeth}.
+Basic calculations were performed using Numpy \citep{numpy} and Scipy
+\citep{scipy}.
 Verde \citep{verde2018} was used to generate data grids.
 Upward continuation was performed using Harmonica \citep{harmonica2020}.
 The Choclo library \citep{choclo2022} provided kernel functions used in the
 forward and inverse problems.
-The Numba just-in-time compilation library \citep{lam2015numba} was used to
+The Numba just-in-time compilation library \citep{numba2015} was used to
 speed-up calculations.
-Lastly, the xarray library \citep{hoyer2017xarray} offered a fast and powerful
+Lastly, the xarray library \citep{xarray} offered a fast and powerful
 tool for working with multi-dimensional datasets allowing an easy way of data
 visualization and extraction with advanced indexing techniques.
 

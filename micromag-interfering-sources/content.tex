@@ -427,28 +427,28 @@ Our improved algorithm demonstrates substantial advancements over its predecesso
 This provides an important step towards paleomagnetism using magnetic microscopy. The possibility of retrieving reliable magnetization directions from thin sections broadens the horizons of previous bulk-derived measurements, such as paleomagnetic tests (e.g., ``conglomerate'' and microscale fold tests). Not only this, we have more capability to spatially correlate the directions estimated (e.g. single crystal inclusion) by obtaining the magnetic information associated with optical images.
 
 
-\section{Open research}
+\section*{Open research}
 
 The Python source code used to produce all results and figures presented here,
 as well as supplementary figures and Jupyter notebooks, and the QDM magnetic
-microscopy data used in this study are available from \citet{figshare}, which
+microscopy data used in this study are available from \citet{figshare-micromag-interf}, which
 can also be found on \url{https://github.com/\GitHubRepository} under the MIT
 (source code) and CC-BY (data, text, and figures) licenses.
 
 We made use of the following Python software in our research:
 scikit-image \citep{VanderWalt2014} for image processing and blob detection;
 matplotlib \citep{Hunter2007} for generating figures and stereograms;
-Numpy \citep{Harris2020} for basic linear-algebra and array computations;
-Scipy \citep{2020SciPy-NMeth} for linear-algebra and non-linear optimization;
+Numpy \citep{numpy} for basic linear-algebra and array computations;
+Scipy \citep{scipy} for linear-algebra and non-linear optimization;
 Verde \citep{verde2018} for generating data grids;
 Harmonica \citep{harmonica2020} for upward continuation and magnetic data processing;
 Choclo \citep{choclo2022} for optimized kernel functions used in the
 forward and inverse modeling;
-Numba \citep{lam2015numba} for just-in-time compilation;
-xarray \citep{hoyer2017xarray} for coordinate-aware multidimensional arrays.
+Numba \citep{numba2015} for just-in-time compilation;
+xarray \citep{xarray} for coordinate-aware multidimensional arrays.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Acknowledgements}
+\section*{Acknowledgements}
 
 We gratefully acknowledge the Laboratório de Paleomagnetismo e Magnetismo de Rochas (USPmag, Universidade de São Paulo) for maintaining and providing access to samples, and the Harvard Paleomagnetics Lab (Department of Earth and Planetary Sciences, Harvard University) for providing the facilities and equipment used for the QDM and bulk measurements. We sincerely acknowledge the developers and maintainers of the open-source software, whose contributions were essential to the completion of this work. This research was supported by grants 2021/08379-5 and 2023/13372-5 from the Fundação de Amparo à Pesquisa do Estado de São Paulo (FAPESP), grant IES\textbackslash{}R3\textbackslash{}213141 from the Royal Society, and grant PRPI 22.1.09345.01.2 from Universidade de São Paulo.
 The opinions, hypotheses, and conclusions or recommendations expressed in this material are the responsibility of the authors and do not necessarily reflect the views of FAPESP.

@@ -57,6 +57,7 @@
 % For fancy and multipage tables
 \usepackage{tabularx}
 \usepackage{ltablex}
+\usepackage{multirow}
 % For better tables
 \usepackage{booktabs}
 % To define custom environments
@@ -67,7 +68,7 @@
 % Better handling of footnotes inside summary boxes
 \usepackage{footmisc}
 % To create Algorithm floats
-\usepackage{algorithm2e}
+\usepackage[longend,linesnumbered,ruled]{algorithm2e}
 % To write units in a nice way
 \usepackage{siunitx}
 % To control what's inside and outside the book parts
@@ -333,7 +334,8 @@ Bla.
 \section*{Abstract}
 \input{eql-gradient-boosted/abstract.tex}
 
-% \input{eql-gradient-boosted/content.tex}
+\input{eql-gradient-boosted/content.tex}
+\input{eql-gradient-boosted/appendix.tex}
 \endgroup
 
 %==============================================================================
@@ -355,7 +357,7 @@ Bla.
 \section*{Abstract}
 \input{eqs-gb-norm-of-b/abstract.tex}
 
-% \input{eqs-gb-norm-of-b/content.tex}
+\input{eqs-gb-norm-of-b/content.tex}
 \endgroup
 
 %==============================================================================
@@ -376,7 +378,7 @@ Bla.
 \section*{Abstract}
 \input{micromag-euler-dipole/abstract.tex}
 
-% \input{micromag-euler-dipole/content.tex}
+\input{micromag-euler-dipole/content.tex}
 \endgroup
 
 %==============================================================================
@@ -398,7 +400,7 @@ Bla.
 \section*{Abstract}
 \input{micromag-interfering-sources/abstract.tex}
 
-% \input{micromag-interfering-sources/content.tex}
+\input{micromag-interfering-sources/content.tex}
 \endgroup
 
 %==============================================================================
@@ -420,7 +422,7 @@ Bla.
 \section*{Abstract}
 \input{euler-inversion/abstract.tex}
 
-% \input{euler-inversion/contents.tex}
+\input{euler-inversion/contents.tex}
 \endgroup
 
 %==============================================================================

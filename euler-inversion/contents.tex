@@ -344,7 +344,7 @@ into an unconstrained problem by using the Lagrangian
 in which $\boldsymbol{\lambda}$ is an $N \times 1$ vector of Lagrange
 multipliers.
 The non-linear Lagrangian is minimised through Newton's method
-\citep{Aster2018}.
+\citep{Aster2019}.
 We start with initial estimates $\mathbf{p}_0$ and $\mathbf{d}_0$ and then
 iteratively apply corrections $\mathbf{\Delta p}_k$ and $\mathbf{\Delta d}_k$
 until convergence is achieved.
@@ -1602,7 +1602,7 @@ deconvolution in most cases.
 Its reduced sensitivity to noise and interfering sources, in particular,
 may prove beneficial for magnetic microscopy studies, in which high-frequency
 noise and interference from multiple dipolar sources are a significant hurdle
-\citep{SouzaJunior2024}.
+\citep{Souza-Junior2024}.
 However, it still suffers from some of the same limitations.
 While Euler inversion is less sensitive to signal overlap, it still fails to
 correctly estimate the position and structural index when the overlap is large.
@@ -1643,14 +1643,14 @@ figures presented here are available at
 and \url{https://doi.org/\ArchiveDOI} \citep{figshare}
 under the CC-BY license and the MIT license.
 This study made use of the following open-source scientific software:
-matplotlib \citep{matplotlib} and PyGMT \citep{pygmt} for generating figures
+matplotlib \citep{Hunter2007} and PyGMT \citep{pygmt} for generating figures
 and maps,
 Numpy \citep{numpy} and Scipy \citep{scipy} for linear algebra,
 Pandas for manipulating tabular data \citep{McKinney2010,pandas},
 GeoPandas for reading and plotting shapefiles \citep{geopandas},
 pyproj for data projection \citep{pyproj},
 xarray \citep{xarray} for working with gridded data,
-Verde \citep{verde} for moving windows and interpolation,
+Verde \citep{verde2018} for moving windows and interpolation,
 and Harmonica \citep{harmonica} for potential-field data processing and
 modeling.
 The aeromagnetic and geologic data are available from Serviço Geológico do
