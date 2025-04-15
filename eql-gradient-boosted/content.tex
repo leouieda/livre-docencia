@@ -43,7 +43,7 @@ reduction-to-the-pole of magnetic data
 continuation \citep{emilia1973, Li2010}, joint processing of gravity gradient
 data \citep{barnes2011}, modelling the lithospheric magnetic field
 \citep{kother2015}, recovering the magnetic induction vector from
-total-field magnetic anomalies \citep{li2020}, and more.
+total-field magnetic anomalies \citep{Li2020}, and more.
 
 It is also worth mentioning the least-squares collocation method
 (LSC), which is widely used in geodesy
@@ -65,7 +65,7 @@ The most commonly used type of source is a point mass for gravity or dipole for
 magnetics \citep[e.g.,~][]{vonfrese1981, silva1986, Mendona1994,
 Siqueira2017}.
 However, right-rectangular prisms \citep[e.g.,][]{barnes2011, Jirigalatu2019,
-li2020} and tesseroids \citep{bouman2016} have also been used successfully.
+Li2020} and tesseroids \citep{bouman2016} have also been used successfully.
 In fact, even point sources with a simple inverse distance function, instead of
 actual gravity or magnetic fields, can be used as
 equivalent sources \citep{cordell1992}.
@@ -75,7 +75,7 @@ The most common approach is to distribute sources on a regular grid at a
 constant depth \citep[e.g.,~][]{Leao1989, barnes2011, OliveiraJr2013}.
 Alternatively, sources can be placed beneath each data point
 \citep[e.g.,~][]{cordell1992, Siqueira2017}.
-Some recent work by \citet{li2020} places the sources in two overlapping layers
+Some recent work by \citet{Li2020} places the sources in two overlapping layers
 at different depths.
 
 The coefficients of the equivalent source model are often estimated through
@@ -119,7 +119,7 @@ the equivalent sources technique:
       through a \emph{block-averaging} strategy while maintaining the quality
       of the solution.
     \item Fit the equivalent source model iteratively along overlapping windows
-      using a \emph{gradient boosting} algorithm \citep{friedman2001}.
+      using a \emph{gradient boosting} algorithm \citep{Friedman2001}.
 \end{enumerate}
 
 The first strategy consists in dividing the survey area into horizontal blocks
@@ -343,7 +343,7 @@ using vector $\hat{\mathbf{c}}$ instead of $\hat{\mathbf{m}}$.
 
 \subsection{Gradient boosting}
 
-Gradient boosting was first introduced by \citet{friedman2001, friedman2002} as
+Gradient boosting was first introduced by \citet{Friedman2001, Friedman2002} as
 a method for fitting additive parametric models of the form
 
 \begin{equation}
@@ -389,7 +389,7 @@ steps:
 
 The gradient boosting algorithm works by fitting each component of the
 additive model, one at a time, to the residuals of the previous component.
-\citet{friedman2001} demonstrates that this corresponds to a steepest-descent
+\citet{Friedman2001} demonstrates that this corresponds to a steepest-descent
 optimization in the so-called ``function space''.
 The adaptation of the gradient boosting method to find the damped least-squares
 solutions for the $K$ parameter vectors $\mathbf{c}_k$ in
@@ -453,7 +453,7 @@ in which ${c_k}_j$ is the $j$-th element of the $\mathbf{c}_k$ vector and the
 ${\mathbf{q}_k}_j$ is the position vector of the $j$-th source of the $k$-th
 window.
 
-To improve the convergence of the algorithm, \citet{friedman2002} suggests
+To improve the convergence of the algorithm, \citet{Friedman2002} suggests
 introducing randomness into the fitting process. We achieve this by randomizing
 the order in which the $K$ windows are used in the gradient boosting algorithm.
 Section~\ref{sec:gb_interpolation} explores the effect of randomization in the
@@ -825,7 +825,8 @@ these strategies on synthetic data.
 \end{figure*}
 
 \begin{figure}[tb!]
-    \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/target-grid.pdf}
+    \centering
+    \includegraphics[width=0.5\linewidth]{eql-gradient-boosted/figs/target-grid.pdf}
     \caption{
         Pseudo-color map of the target grid of synthetic gravity data. The grid
         is composed of \TargetEastingSize{}$\times$\TargetNorthingSize{} points
@@ -884,7 +885,7 @@ deviation.
 \subsection{Source distribution strategies}
 \label{sec:synthetic_distributions}
 
-\begin{figure*}[p]
+\begin{figure*}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/ground_survey_differences.pdf}
     \caption{
         Pseudo-color maps of the differences between the target grid and the
@@ -897,7 +898,7 @@ deviation.
     \label{fig:ground-survey-differences}
 \end{figure*}
 
-\begin{figure*}[p]
+\begin{figure*}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/airborne_survey_differences.pdf}
     \caption{
         Pseudo-color maps of the differences between the target grid and the
@@ -1094,7 +1095,8 @@ the same values of \emph{damping} and \emph{depth} but this time iterating over
 windows in sequential order (South to North, West to East).
 
 \begin{figure}[tb!]
-    \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/eql-boost-airborne.pdf}
+    \centering
+    \includegraphics[width=0.5\linewidth]{eql-gradient-boosted/figs/eql-boost-airborne.pdf}
     \caption{
         Interpolation error for gradient-boosted equivalent sources using
         randomized (a) and sequential (b) window order.
@@ -1127,7 +1129,7 @@ a randomized window order leads to faster convergence of the algorithm.
 
 \section{Gridding gravity data from Australia}
 
-\begin{figure*}[p]
+\begin{figure*}[tb!]
     \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/australia.png}
     \caption{
       Pseudo-color maps of observed (a and c) and
@@ -1177,14 +1179,9 @@ needed to store the largest Jacobian matrix for different values of window size
 We have chosen a size of \AustraliaEqlWindowSize{} in order to limit the
 amount of memory needed to under 16~Gigabytes.
 
-\begin{figure}[tbh!]
-    \makeatletter%
-    \if@twocolumn%
-        \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/australia-memory-cv-error.pdf}
-    \else% \@twocolumnfalse
-        \centering
-        \includegraphics[width=0.6\linewidth]{eql-gradient-boosted/figs/australia-memory-cv-error.pdf}
-    \fi
+\begin{figure}[tb!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{eql-gradient-boosted/figs/australia-memory-cv-error.pdf}
     \makeatother
     \caption{
         (a) Amount of computer memory needed to store the largest Jacobian
@@ -1241,7 +1238,8 @@ The inset figure shows a histogram of these residuals, which are approximately
 normally distributed around zero.
 
 \begin{figure}[tb!]
-    \includegraphics[width=\linewidth]{eql-gradient-boosted/figs/australia-residuals.png}
+    \centering
+    \includegraphics[width=0.5\linewidth]{eql-gradient-boosted/figs/australia-residuals.png}
     \caption{
         Residuals. Differences between the gravity disturbance data from
         Australia and the predicted values by the estimated equivalent sources
