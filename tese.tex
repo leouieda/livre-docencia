@@ -301,9 +301,9 @@ Under the following terms:
 }
 
 %==============================================================================
-\chapter*{Abstract}
-
-Bla.
+% \chapter*{Abstract}
+%
+% Bla.
 
 %==============================================================================
 \tableofcontents
@@ -314,10 +314,112 @@ Bla.
 %==============================================================================
 \chapter{Introduction}
 
-Bla.
+Magnetic field measurements are a major source of indirect information about
+the inner workings of the Earth's crust and core, as well as their evolution
+through geologic time.
+Aeromagnetic surveys are routinely used to study plate tectonics, continental
+structure, mineral deposits, and even the flow of heat from the Earth's crust
+to the surface.
+On a smaller scale, the magnetizations trapped in ferromagnetic minerals of
+some rocks are used in paleomagnetic studies of small samples to understand how
+segments of the lithosphere moved through time and how the Earth's magnetic
+field came to be.
+All of these studies require processing of the data and mathematical inverse
+modeling to estimate physical parameters of the Earth.
+For example, aeromagnetic data must be interpolated onto regular grids at
+a constant height before interpretation.
+Another example is the estimation of the dipole moment of a sample based on
+magnetic fields measured outside of it in a paleomagnetism lab.
+
+This thesis deals with these data processing and modeling methods.
+Its chapters each introduce a novel way to use mathematical models to unlock
+information from magnetic datasets.
+A common theme that runs through out this thesis is the employment of
+computational techniques and algorithms from disparate fields to enable
+the analysis of datasets which would have been previously unfeasible to do.
+This applies to both the continental-scale of geophysical surveys as well as
+to the microscopic scale of the new magnetic microscopy datasets that are being
+used in paleomagnetism.
+
+Chapter~\ref{chap_eqsgb} introduces a new method to apply the equivalent
+sources technique of \citet{cordell1992} to datasets containing millions of
+points.
+Equivalent sources are a very flexible alternative to conventional
+interpolation and transformation methods used in potential fields.
+When used for interpolation, they take the height of observations into account,
+allow for smoother grids, preserve the fact that the observations are harmonic
+functions, and allows assigning different weights to each data to account for
+errors and disparate survey quality.
+Equivalent sources can also provide a more stable method for common potential
+field transformations like upward continuation, reduction to the pole, etc.
+However, the price to be paid is the solution of an inverse problem with
+potentially millions of data and millions of parameters.
+The method we introduce, called \textit{gradient-boosted equivalent sources},
+employs the gradient-boosting method from machine learning to solve several
+small inverse problems and combine them into a final solution.
+With it, we were able to interpolate roughly 1.7 million gravity data points
+from Australia on a regular desktop computer.
+While the particular application in this chapter is to gravity data, the exact
+same method also applies to magnetic data.
+
+Chapter~\ref{chap_eqsdual} extends the gradient-boosting method introduced in
+the previous chapter to use magnetic dipoles as the equivalent sources.
+This is crucial for performing potential field transformations like reduction
+to the pole and calculating the amplitude of the anomalous magnetic field from
+total-field anomaly data.
+The latter is of particular interest for inverse modeling and interpretation
+because the norm of the anomalous field is less dependent than the total-field
+anomaly on the unknown direction of magnetization.
+Several adjustments to the method were required, including introducing a second
+deeper layer of equivalent sources to deal with regional fields and
+long-wavelength anomalies.
+The improved method could then be used to process an aeromagnetic survey with
+over 400 thousand data points from Antarctica and obtain a grid of the
+amplitude of the anomalous magnetic field.
+
+Chapters~\ref{chap_micromag} and \ref{chap_micromag_interf} change scales to
+the microscopic level.
+Chapter~\ref{chap_micromag} introduces a new method to automatically identify
+hundreds of dipolar sources in a magnetic microscopy image and estimate their
+3D positions and dipole moments.
+Other methods available in the literature are either manual, requiring the user
+to isolate each of the hundreds of signals for inversion, or rely on expensive
+and time-consuming microtomography methods.
+Our method constrains the non-unique dipole moment inversion by using a source
+position estimate from Euler deconvolution, which is a widely used method in
+applied geophysics.
+However, the method we proposed was not capable of dealing with large
+concentrations of particles or when signals of smaller and larger particles
+overlapped.
+Chapter~\ref{chap_micromag_interf} presents our solution to these issues.
+We introduced a back-stripping step, where we iteratively remove the estimated
+signal of stronger particles from the dataset before inverting for the dipole
+moment of smaller and weaker particles.
+Along with an additional non-linear inversion step, the updated method is able
+to correctly recover the dipole moment of up to two or three times as many
+particles.
+This advance resolves one of the main issues of our method when it comes to its
+applicability to samples of highly magnetic rocks, such as basalts and other
+volcanics.
+
+Chapter~\ref{chap_euler} bridges both size scales by introducing a novel way to
+solve Euler's homogeneity equation for the position of magnetic sources.
+This has applicability at both the continental-scale to determine the depths of
+intrusions, dykes, and contacts, as well as to the microscopic scale to
+determine the positions of particles based solely on the magnetic data.
+The new method, called \textit{Euler inversion}, is a complete mathematical
+reformulation of the Euler deconvolution problem.
+This new formulation has the advantages of leading to a method that is more
+robust to random noise and to the presence of interfering sources, which is
+a common problem in magnetic microscopy.
+It can also estimate the \textit{structural index} parameter, which is an
+integer that describes the geometry of the magnetic source, in manner that is
+more stable than alternative methods.
+
 
 %==============================================================================
 \chapter{Gradient-boosted equivalent sources}
+\label{chap_eqsgb}
 
 \begingroup
 \input{eql-gradient-boosted/variables}
@@ -329,17 +431,20 @@ Bla.
     doi:\href{https://doi.org/\DOI}{\DOI}.''}, which was previously published
     as a preprint on EarthArXiv (\url{https://doi.org/\PreprintDOI}) under the
     terms of the CC-BY license. It is reproduced here under these terms.
+    The lead author, Santiago R. Soler, undertook this research as a part of
+    their PhD thesis, co-supervised by Leonardo Uieda.
 \end{summarybox}
 
 \section*{Abstract}
 \input{eql-gradient-boosted/abstract.tex}
 
-\input{eql-gradient-boosted/content.tex}
-\input{eql-gradient-boosted/appendix.tex}
+% \input{eql-gradient-boosted/content.tex}
+% \input{eql-gradient-boosted/appendix.tex}
 \endgroup
 
 %==============================================================================
 \chapter{Dual-layer magnetic equivalent sources}
+\label{chap_eqsdual}
 
 \begingroup
 \input{eqs-gb-norm-of-b/information}
@@ -352,16 +457,19 @@ Bla.
     It is published here under the terms of the CC-BY license.
     A version of this text can be found in
     \url{https://github.com/\GitHubRepository}.
+    The lead author, India Uppal, undertook this research as a part of
+    their PhD thesis, co-supervised by Leonardo Uieda.
 \end{summarybox}
 
 \section*{Abstract}
 \input{eqs-gb-norm-of-b/abstract.tex}
 
-\input{eqs-gb-norm-of-b/content.tex}
+% \input{eqs-gb-norm-of-b/content.tex}
 \endgroup
 
 %==============================================================================
 \chapter{Magnetic microscopy inversion}
+\label{chap_micromag}
 
 \begingroup
 \input{micromag-euler-dipole/information}
@@ -373,16 +481,19 @@ Bla.
         Fu, R. R. (\Year). \Title{}. \textit{\Journal{}}.
     doi:\href{https://doi.org/\JournalDOI}{\JournalDOI}.''} under the
     terms of the CC-BY license. It is reproduced here under these terms.
+    The lead author, Gelson F. Souza-Junior, undertook this research as a part
+    of their PhD thesis, supervised by Leonardo Uieda.
 \end{summarybox}
 
 \section*{Abstract}
 \input{micromag-euler-dipole/abstract.tex}
 
-\input{micromag-euler-dipole/content.tex}
+% \input{micromag-euler-dipole/content.tex}
 \endgroup
 
 %==============================================================================
 \chapter{Iterative magnetic microscopy inversion}
+\label{chap_micromag_interf}
 
 \begingroup
 \input{micromag-interfering-sources/information}
@@ -395,16 +506,19 @@ Bla.
     doi:\href{https://doi.org/\PreprintDOI}{\PreprintDOI}.''} under the
     terms of the CC-BY license. It is reproduced here under these terms.
     The preprint is currently under review at \textit{\Journal{}}.
+    The lead author, Gelson F. Souza-Junior, undertook this research as a part
+    of their PhD thesis, supervised by Leonardo Uieda.
 \end{summarybox}
 
 \section*{Abstract}
 \input{micromag-interfering-sources/abstract.tex}
 
-\input{micromag-interfering-sources/content.tex}
+% \input{micromag-interfering-sources/content.tex}
 \endgroup
 
 %==============================================================================
 \chapter{Euler inversion}
+\label{chap_euler}
 
 \begingroup
 \input{euler-inversion/information}
@@ -422,13 +536,42 @@ Bla.
 \section*{Abstract}
 \input{euler-inversion/abstract.tex}
 
-\input{euler-inversion/contents.tex}
+% \input{euler-inversion/contents.tex}
 \endgroup
 
 %==============================================================================
 \chapter{Conclusion}
 
-Bla.
+When taken as a whole, the five contributions of this thesis allow the
+application of inverse modeling to large quantities of magnetic data.
+For magnetic microscopy to be applied for paleomagnetism, \citet{Bellon2025}
+estimates that the dipole moment of thousands of sources must be determined per
+rock sample.
+This would be entirely impractical to achieve at scale by manual processing or
+through expensive techniques like microtomography.
+For equivalent source processing, compilations of aeromagnetic data for
+continents like Antarctica and South America number in the tens of millions of
+data points.
+Yet, most applications of equivalent sources of processing such datasets has
+been limited to a few tens of thousands of data points.
+Through our contributions, paleomagnetic studies using magnetic microscopy are
+now feasible to undertake with a regular laptop computer in a few minutes of
+processing time.
+Using gradient-boosted equivalent sources, we can now model, interpolate, and
+transform the entire aeromagnetic datasets of entire continents using modest
+computing resources that are available to most researchers.
+Furthermore, we can also combine different surveys into a single model in way
+that respects their relative accuracies and preserves the harmonic aspect of
+the data.
+With Euler inversion, we more robustly estimate the depths and approximate
+geometries of the sources of these two types of data, leading to better
+interpretations and more accurate paleomagnetic directions.
+
+In the future, we aim to apply equivalent sources to produce compiled and
+harmonized gridded datasets for Antarctica and Brazil, both of which contain
+tens of millions of data points.
+We are also working on a first attempt at recovering a paleomagnetic direction
+and intensity by using magnetic microscopy data.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
