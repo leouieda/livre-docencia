@@ -4,6 +4,8 @@
 
 Published on figshare: https://doi.org/10.6084/m9.figshare.28791908
 
+Presentation slides (in portuguese): https://www.leouieda.com/livre-docencia
+
 Thesis presented to the Universidade de São Paulo to obtain the title of "Livre Docente". This is a compilation of other papers that all have been published under a CC-BY license:
 
 * Soler, S. R. and Uieda, L. (2021). Gradient-boosted equivalent sources. Geophysical Journal International. https://doi.org/10.1093/gji/ggab297.
