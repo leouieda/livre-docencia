@@ -3,11 +3,11 @@
 # Variables
 ###############################################################################
 ### Documents to build
-PDF = tese.pdf
+PDF = tese/tese.pdf
 ### File Types (for dependencies)
 TEX = $(filter-out $(PDF:.pdf=.tex), $(wildcard **/*.tex))
-BIB = $(wildcard *.bib)
-FIG = $(wildcard */figures/*)
+BIB = $(wildcard tese/*.bib)
+FIG = $(wildcard tese/*/figures/*)
 
 
 # Rules for building, opening, and cleaning the PDF output
@@ -22,5 +22,5 @@ show: $(PDF)
 clean:
 	rm -vf $(PDF)
 
-presentation:
-	@cd presentation && python serve.py
+serve:
+	python serve.py
