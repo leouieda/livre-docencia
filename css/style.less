@@ -92,7 +92,7 @@
   // Footnotes. Use in a div. Add the r-stretch class on the element before to
   // push to the bottom of the slide.
   .footnote {
-    .miniscule();
+    .tiny();
     display: flex;
     justify-content: flex-end;
     p {
@@ -174,13 +174,18 @@
     text-align: right;
   }
 
+  // Misc
+  .img-round {
+      border-radius: 100%;
+  }
+
   // ========================================================================
 
 
   // SLIDE CLASSES
   // ========================================================================
   .slide-transition {
-    background-color: #0053d1;
+    background-color: #2a7fff;
     h1 {
       font-size: @basefontsize * 2.5;
       line-height: @basefontsize * 3;
@@ -287,19 +292,21 @@
     }
   }
   h1, h2, h3 {
-    font-weight: normal;
     text-transform: none;
   }
   h1 {
+    font-weight: bold;
     font-size: @basefontsize * 1.6;
     line-height: @basefontsize * 2.0;
     margin-bottom: 3.5rem;
   }
   h2 {
+    font-weight: bold;
     font-size: @basefontsize * 1.35;
     margin-bottom: 2rem;
   }
   h3 {
+    font-weight: normal;
     font-size: @basefontsize * 1.1;
     margin-bottom: 1rem;
   }

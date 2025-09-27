@@ -56,81 +56,175 @@ Feel free to screenshot/share/reuse this presentation
 
 ===============================================================================
 
-# Conteúdo
+<!-- .slide: class="slide-transition" -->
 
-1. <!-- .element: class="fragment" -->Introdução
-1. <!-- .element: class="fragment" -->Fontes equivalentes
-1. <!-- .element: class="fragment" -->Microscopia magnética
-1. <!-- .element: class="fragment" -->Inversão de Euler
-1. <!-- .element: class="fragment" -->Conclusões
-
+# Introdução
 
 ===============================================================================
+
+<!-- .slide: data-background-image="assets/wdmam.jpg" data-background-size="contain" data-background-color="#000000" -->
 
 <div class="r-stretch">
 
-# Some facts
-
-About a certain topic.
-
 </div>
-<div class="footnote">
+<div class="footnote-left dark">
 
-This is a little footnote.
-Use it to add notes, citations, [links](https://www.leouieda.com/), etc.
-<br>
-Notice how the `div` above uses `r-stretch` to push this note to the bottom.
+World Digital Magnetic Anomaly Map ([wdmam.org](https://wdmam.org/)).
 
 </div>
 
 ===============================================================================
 
-<div class="r-stretch centered">
-<div>
+<div class="huge">
 
-# Even more facts!
-
-About many different things.
+1. <!-- .element: class="fragment" -->Processamento
+1. <!-- .element: class="fragment" -->Continuação
+1. <!-- .element: class="fragment" -->Interpolação
+1. <!-- .element: class="fragment" -->Combinação
+1. <!-- .element: class="fragment" -->Inversão
 
 </div>
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/qdm-basalt.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
 </div>
 <div class="footnote-left">
 
-Left aligned footnote.
-Use `centered` on the `div` above to vertically center content.
+Imagem ótica (esquerda) e component vertical do campo magnético de uma amostra
 <br>
-Need to put another `div` inside of it as well.
+de basalto medidos por um QDM
+([Souza-Junior et a., 2025](https://doi.org/10.31223/X5N42F))
 
 </div>
 
 ===============================================================================
 
-<!-- .slide: data-background-image="assets/agu2019.svg" data-background-size="contain" data-background-color="#000000" -->
+<div class="huge">
 
-<div class="r-stretch">
-</div>
-<div class="footnote-center dark">
-
-Centered footnote with a dark background on a slide with a background.
-<br>
-Set the size to `contain` to make sure aspect ratios are preserved and the
-background isn't cropped.
-<br>
-It's a good idea to add alt-text to this footnote if the background is
-important.
+1. <!-- .element: class="fragment" -->Rotação de $B_{111}$ para $B_z$
+1. <!-- .element: class="fragment" -->Detecção de anomalias
+1. <!-- .element: class="fragment" -->Determinação de posição
+1. <!-- .element: class="fragment" -->Determinação de momento
 
 </div>
 
 ===============================================================================
 
-<!-- .slide: data-background-video="assets/brasil-sao-paulo-rio.mp4" data-background-size="contain" data-background-color="#000000" -->
+# Esta tese
 
-<div class="r-stretch">
+1. <!-- .element: class="fragment" -->
+   Continuação e **interpolação** de dados aeromagnéticos
+1. <!-- .element: class="fragment" -->
+   Detecção de anomalias e **inversão** de dados de **microscopia**
+1. <!-- .element: class="fragment" -->
+   Determinação de **posição e forma** de fontes magnéticas
+
+===============================================================================
+
+# Trabalho de pessoas maravilhosas
+
+<div class="row">
+<div class="col fragment fade-up">
+
+<img class="img-round" src="https://github.com/santisoler.png">
+
+Santiago Soler
+
+<div class="small">
+
+PhD Un. Nacional San Juan
+<br>
+Posdoc UBC
+
 </div>
-<div class="footnote">
 
-This is how you use a video background.
-The video auto starts when flipping to this slide.
+</div>
+<div class="col fragment fade-up">
+
+<img class="img-round" src="https://github.com/indiauppal.png">
+
+India Uppal
+
+<div class="small">
+
+PhD U. of Liverpool
+
+</div>
+
+</div>
+<div class="col fragment fade-up">
+
+<img class="img-round" src="https://github.com/Souza-junior.png">
+
+Gelson Souza-Junior
+
+<div class="small">
+
+PhD IAG/USP
+
+</div>
+
+</div>
+</div>
+
+===============================================================================
+
+<!-- .slide: class="slide-transition" -->
+
+# Parte 1 <br> Fontes equivalentes
+
+===============================================================================
+
+# Artigos
+
+<div class="text-left">
+
+Soler, S. R. and Uieda, L. (2021). **Gradient-boosted equivalent sources**.
+Geophysical Journal International.
+doi:[10.1093/gji/ggab297](https://doi.org/10.1093/gji/ggab297).
+
+Uppal, I., Uieda, L., Oliveira Jr., V. C. and Holme, R. (2025).
+**Transforming Total Field Anomaly into Anomalous Magnetic Field: Using
+Dual-Layer Gradient-Boosted Equivalent Sources.**
+EarthArXiv.
+doi:[10.31223/X58B1Q](https://doi.org/10.31223/X58B1Q).
+<!-- .element: class="fragment fade-in-then-semi-out" -->
+
+Uppal, I., Uieda, L., Oliveira Jr., V. C., Holme, R. (2025). **Dual-Layer
+Gradient-Boosted Equivalent Sources for Magnetic Data.** Geophysical Journal
+International. doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359).
+<!-- .element: class="fragment" -->
+
+</div>
+
+===============================================================================
+
+===============================================================================
+
+<!-- .slide: class="slide-transition" -->
+
+# Parte 2 <br> Microscopia magnética
+
+===============================================================================
+
+# Artigos
+
+<div class="text-left">
+
+Souza-Junior, G. F., Uieda, L., Trindade, R. I. F., Carmo, J. and Fu, R. R.
+(2024). **Full vector inversion of magnetic microscopy images using Euler
+deconvolution as prior information.** Geochemistry, Geophysics, Geosystems.
+doi:[10.1029/2023GC011082](https://doi.org/10.1029/2023GC011082).
+
+Souza-Junior, G. F., Uieda, L., Trindade, R. I. F., Fu, R. R., Bellon, U. D.
+and Castro, Y. M. (2025). **Robust directional analysis of magnetic microscopy
+images using non-linear inversion and iterative Euler deconvolution.**
+EarthArXiv. doi:[10.31223/X5N42F](https://doi.org/10.31223/X5N42F).
+<span class="fragment">("major revisions" na JGR: Solid Earth)
+<!-- .element: class="fragment" -->
 
 </div>
 
@@ -138,216 +232,38 @@ The video auto starts when flipping to this slide.
 
 <!-- .slide: class="slide-transition" -->
 
-# A transition slide <br> with a large title
-
-...and some text.
+# Parte 3 <br> Inversão de Euler
 
 ===============================================================================
 
-# Maths
+# Artigo
 
-This is an inline $\int_a^b x^2 dx$ and $\delta g = g - \gamma$:
+<div class="text-left">
 
-`\[ \int_a^b x^2 dx \]`
-
-===============================================================================
-
-<!-- .slide: data-background-image="assets/agu2019.svg" data-background-size="contain" data-background-opacity="0.3" data-background-color="#000000" -->
-
-<div class="quote">
-
-Big quote message with a faded background image.
-Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+Uieda, L., Souza-Junior, G. F., Uppal, I. and Oliveira Jr., V. C. (2025).
+**Euler inversion: Locating sources of potential-field data through inversion
+of Euler's homogeneity equation.** Geophysical Journal International.
+doi:[10.1093/gji/ggaf114](https://doi.org/10.1093/gji/ggaf114).
 
 </div>
 
 ===============================================================================
 
-<!-- .slide: data-background-image="assets/agu2019.svg" data-background-size="contain" data-background-opacity="0.3" data-background-color="#ffffff" -->
-
-<div class="quote dark">
-
-Light fade of the background with a dark quote.
-
-</div>
+<!-- .slide: class="slide-transition" -->
 
 ===============================================================================
 
-# Two column layout
+<!-- .slide: data-background-image="assets/compgeolab.jpg" data-background-size="contain" data-background-position="bottom" -->
 
-<div class="row">
-<div class="col">
+**Obrigado aos estudantes e colaboradores do CompGeoLab**
 
-## Theory
+India, Gelson, Santiago, Arthur, Yago, Eros, Ellen, Gabriel, Felipe, Paulo,
+Gabriella, Jefferson
 
-Explain something here.
-This is how you make a FontAwesome list:
+Vanderlei Oliveira Jr., Ricardo Trindade, Richard Holme, Roger Fu,
+<br> Ualisson Bellon, Janine Carmo
 
-<ul class="fa-ul">
-
-<li>
-<span class="fa-li"> <i class="fa fa-lightbulb fa-fw"></i> </span>
-Make a list with
-</li>
-
-<li>
-<span class="fa-li"> <i class="fa fa-file-alt fa-fw"></i> </span>
-some awesome icons
-</li>
-
-<li>
-<span class="fa-li"> <i class="fa fa-users fa-fw"></i> </span>
-instead of bullet points
-</li>
-
-</ul>
-
-</div>
-<div class="col tiny">
-
-<img src="assets/halfspace-temperature.png">
-
-Some text explaining the figure.
-Maybe even a bit of maths like $\gamma$.
-
-</div>
-</div>
-
-<div class="footnote">
-
-Good place for a citation or image credit.
-This one is by Leonardo Uieda (CC-BY).
-
-</div>
-
-===============================================================================
-
-<div class="r-stretch centered">
-<div>
-
-# Multiple columns
-
-Place as many `col`s as you want. They will have the same size.
-
-<div class="row">
-<div class="col">
-
-Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-bla bla.
-
-</div>
-<div class="col tiny">
-
-<img src="assets/nbr_thomas_fire.jpg">
-
-Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-bla bla.
-
-</div>
-<div class="col tiny">
-
-<img src="assets/halfspace-temperature.png">
-
-Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-bla bla.
-
-</div>
-</div>
-
-</div>
-</div>
-<div class="footnote">
-
-Images by Leonardo Uieda (CC-BY).
-
-</div>
-
-===============================================================================
-
-# This one has columns of different size
-
-<div class="row">
-<div class="col-large tiny">
-
-<img style="width: 95%;" src="assets/nbr_thomas_fire.jpg">
-
-This way the image is larger on the screen. Use it for maps or main figures.
-
-</div>
-<div class="col small">
-
-Explain what is shown on the image.
-Use the `small` class to adjust font size.
-
-Maybe include some maths:
-
-$ D\dfrac{\partial^4 w}{\partial x^4} = q - g (\rho_m - \rho_w) w $
-
-</div>
-</div>
-
-===============================================================================
-
-<div class="row">
-<div class="col tiny">
-
-<img src="assets/japan-trench-globalcmt.png">
-
-This way the image is narrow so it should be in a smaller column.
-
-</div>
-<div class="col-medium">
-
-# Column sizes
-
-Columns come in 3 sizes:
-
-1. `col`
-1. `col-medium`
-1. `col-large`
-
-These are more proportions than fixed sizes.
-
-</div>
-</div>
-
-===============================================================================
-
-# Code
-
-Example of using PyGMT to make a map:
-
-<div class="row">
-<div class="col-large fragment small">
-
-This code:
-
-```python
-import pygmt
-
-# Load built-in topography data
-grid = pygmt.datasets.load_earth_relief()
-
-fig = pygmt.Figure()
-# Pseudo-color map of topography
-fig.basemap(
-    region=[-150, -30, -60, 60],
-    projection="I-90/6i",
-    frame=True,
-)
-fig.grdimage(grid=grid, cmap="viridis")
-# Mask continents in dark grey
-fig.coast(land="#333333")
-# Display in Jupyter or pop-up window
-fig.show()
-```
-</div>
-<div class="col-medium fragment small">
-
-Makes this map 👇
-
-<img style="width: 90%" src="assets/pygmt-example.png">
-
+<div class="r-stretch">
 </div>
 
 ===============================================================================
