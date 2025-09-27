@@ -12,8 +12,10 @@ The reveal.js configuration can be found in index.html
 </div>
 
 <h1 id="talk-title">
-  Modeling of magnetic field observations
-  from continental <br> to microscopic scale
+  Modeling of magnetic field
+  observations
+  <br>
+  from continental  to microscopic scale
 </h1>
 <p id="talk-authors">
   <a href="https://www.leouieda.com" id="talk-speaker">Leonardo Uieda</a>
@@ -27,6 +29,9 @@ The reveal.js configuration can be found in index.html
 29 de setembro 2025
 <span style="margin: 0 20px"></span>
 Concurso de Livre Docência | IAG/USP
+
+<i class="fa fa-book" style="margin: 0 10px 0 0"></i>
+Tese: [doi.org/10.6084/m9.figshare.28791908](https://doi.org/10.6084/m9.figshare.28791908)
 
 <!-- Permission to reuse and CC-BY license logo -->
 <i class="fa fa-camera" style="margin: 0 10px 0 0"></i>
@@ -51,19 +56,14 @@ Feel free to screenshot/share/reuse this presentation
 
 ===============================================================================
 
-
 # Conteúdo
 
-<div class="text-left">
-
 1. <!-- .element: class="fragment" -->Introdução
-1. <!-- .element: class="fragment" -->Fontes equivalentes e gradient boosting
-1. <!-- .element: class="fragment" -->Fontes equivalentes magnéticas
+1. <!-- .element: class="fragment" -->Fontes equivalentes
 1. <!-- .element: class="fragment" -->Microscopia magnética
 1. <!-- .element: class="fragment" -->Inversão de Euler
 1. <!-- .element: class="fragment" -->Conclusões
 
-</div>
 
 ===============================================================================
 
