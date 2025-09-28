@@ -87,7 +87,37 @@ World Digital Magnetic Anomaly Map ([wdmam.org](https://wdmam.org/)).
 
 ===============================================================================
 
+<!-- .slide: data-background-image="assets/qdm-basalt-visual.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote-left">
+
+Imagem ótica (esquerda) e component vertical do campo magnético de uma amostra
+<br>
+de basalto medidos por um QDM
+([Souza-Junior et a., 2025](https://doi.org/10.31223/X5N42F))
+
+</div>
+
+===============================================================================
+
 <!-- .slide: data-background-image="assets/qdm-basalt.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote-left">
+
+Imagem ótica (esquerda) e component vertical do campo magnético de uma amostra
+<br>
+de basalto medidos por um QDM
+([Souza-Junior et a., 2025](https://doi.org/10.31223/X5N42F))
+
+</div>
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/qdm-basalt-arrow.svg" data-background-size="contain" -->
 
 <div class="r-stretch">
 </div>
@@ -202,6 +232,24 @@ International. doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359).
 
 ===============================================================================
 
+<!-- .slide: data-background-image="assets/fontes-equivalentes-dados.svg" data-background-size="contain" -->
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/fontes-equivalentes-fontes.svg" data-background-size="contain" -->
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/fontes-equivalentes.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote">
+
+Fonte: Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792.v1](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+
+</div>
+
 ===============================================================================
 
 <!-- .slide: class="slide-transition" -->
@@ -257,12 +305,15 @@ doi:[10.1093/gji/ggaf114](https://doi.org/10.1093/gji/ggaf114).
 
 **Obrigado aos estudantes e colaboradores do CompGeoLab**
 
+<div class="small">
+
 India, Gelson, Santiago, Arthur, Yago, Eros, Ellen, Gabriel, Felipe, Paulo,
 Gabriella, Jefferson
 
 Vanderlei Oliveira Jr., Ricardo Trindade, Richard Holme, Roger Fu,
 <br> Ualisson Bellon, Janine Carmo
 
+</div>
 <div class="r-stretch">
 </div>
 
@@ -295,7 +346,7 @@ licensed under the
 
 </div>
 </div>
-<div class="footnote-left dark">
+<div class="footnote-center dark">
 
 Imagem de fundo é uma cena do Landsat 9 próximo à foz do Rio Amazonas.
 Fonte: [github.com/leouieda/landsat-wallpapers](https://github.com/leouieda/landsat-wallpapers)
