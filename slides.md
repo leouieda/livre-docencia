@@ -497,6 +497,15 @@ Uppal et al. (2025; doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf35
 
 # Conclusões
 
+Interpolar e transformar dados magnéticos
+<!-- .element: class="fragment" -->
+
+Controle de suavidade e estabilidade
+<!-- .element: class="fragment" -->
+
+Ponderar dados de maneira diferente na inversão
+<!-- .element: class="fragment" -->
+
 Fontes equivalentes para modelar milhões de dados
 <!-- .element: class="fragment" -->
 
@@ -529,6 +538,188 @@ EarthArXiv. doi:[10.31223/X5N42F](https://doi.org/10.31223/X5N42F).
 <!-- .element: class="fragment" -->
 
 </div>
+
+===============================================================================
+
+## Dados QDM de um espeleotema
+
+<div class="row">
+<div class="col">
+</div>
+<div class="col-large small">
+
+<img src="assets/microscopy-data.png">
+
+[Carmo et al. (2023)](https://doi.org/10.6084/m9.figshare.22965200.v1)
+e
+[Souza-Junior et al. (2024)](https://doi.org/10.1029/2023GC011082).
+
+</div>
+<div class="col">
+</div>
+</div>
+
+===============================================================================
+
+## Gradiente total
+
+<div class="row">
+<div class="col">
+</div>
+<div class="col-large small">
+
+<img src="assets/microscopy-data-tga.png">
+
+[Souza-Junior et al. (2024)](https://doi.org/10.1029/2023GC011082).
+
+</div>
+<div class="col">
+</div>
+</div>
+
+===============================================================================
+
+## Detecção de anomalias com LoG
+
+<div class="row">
+<div class="col">
+</div>
+<div class="col-large small">
+
+<img src="assets/microscopy-data-log.png">
+
+[Souza-Junior et al. (2024)](https://doi.org/10.1029/2023GC011082).
+
+</div>
+<div class="col">
+</div>
+</div>
+
+===============================================================================
+
+## Deconvolução de Euler
+
+<div class="row">
+<div class="col">
+</div>
+<div class="col-large small">
+
+<img src="assets/microscopy-data-euler.png">
+
+[Souza-Junior et al. (2024)](https://doi.org/10.1029/2023GC011082).
+
+</div>
+<div class="col">
+</div>
+</div>
+
+===============================================================================
+
+## Inversão linear
+
+<div class="small">
+
+<img src="assets/microscopy-data-resultados.png">
+
+[Souza-Junior et al. (2024)](https://doi.org/10.1029/2023GC011082).
+
+</div>
+
+===============================================================================
+
+## Problemas com fontes interferentes
+
+<div class="small">
+
+<img src="assets/microscopy-data-problemas.svg">
+
+[Souza-Junior et al. (2024)](https://doi.org/10.1029/2023GC011082).
+
+</div>
+
+===============================================================================
+
+# Algoritmo melhor
+
+1. <!-- .element: class="fragment" -->
+   Deconv. Euler e inversão linear da maior janela
+1. <!-- .element: class="fragment" -->
+   Refina posição e momento com inversão não-linear
+1. <!-- .element: class="fragment" -->
+   Remove o efeito da fonte estimada do dado todo
+1. <!-- .element: class="fragment" -->
+   Continua para todas as janelas
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/microscopy-extra-detection-data.png">
+
+[Souza-Junior et al. (2025)](https://doi.org/10.31223/X5N42F).
+
+</div>
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/microscopy-extra-detection-first.png">
+
+[Souza-Junior et al. (2025)](https://doi.org/10.31223/X5N42F).
+
+</div>
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/microscopy-extra-detection.png">
+
+[Souza-Junior et al. (2025)](https://doi.org/10.31223/X5N42F).
+
+</div>
+
+===============================================================================
+
+## Exemplo: Amostra de cerâmica
+
+<div class="small">
+
+<img src="assets/microscopy-ceramica.png">
+
+[Souza-Junior et al. (2025)](https://doi.org/10.31223/X5N42F).
+
+</div>
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/microscopy-ceramica-resultados.png">
+
+[Souza-Junior et al. (2025)](https://doi.org/10.31223/X5N42F).
+
+</div>
+
+===============================================================================
+
+# Conclusões
+
+Microscopia magnética pode revolucionar o paleomagnetismo
+<!-- .element: class="fragment" -->
+
+Precisa do sinal de milhares de fontes PSD ([Bellon et al., 2025](https://doi.org/10.1029/2025GL114771))
+<!-- .element: class="fragment" -->
+
+Métodos rápidos e automáticos para analisar os dados
+<!-- .element: class="fragment" -->
+
+Alternativas são análise manual ou baseadas em microCT ([de Groot et al., 2021](https://doi.org/10.1029/2021JB022364))
+<!-- .element: class="fragment" -->
+
+Nossos métodos podem democratizar o uso da microscopia magnética
+<!-- .element: class="fragment" -->
 
 ===============================================================================
 
@@ -565,7 +756,7 @@ Modelagem do campo magnético terrestre
 Fontes equivalentes em larga escala
 <!-- .element: class="fragment" -->
 
-Inversão automática de dados de microscopia
+Inversão automática e rápida de dados de microscopia
 <!-- .element: class="fragment" -->
 
 Estimação de posição e índice estrutural mais robusto
