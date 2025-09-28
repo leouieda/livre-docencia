@@ -553,11 +553,59 @@ doi:[10.1093/gji/ggaf114](https://doi.org/10.1093/gji/ggaf114).
 
 <!-- .slide: class="slide-transition" -->
 
+# Conclusões
+
+===============================================================================
+
+<div class="large">
+
+Modelagem do campo magnético terrestre
+<!-- .element: class="fragment" -->
+
+Fontes equivalentes em larga escala
+<!-- .element: class="fragment" -->
+
+Inversão automática de dados de microscopia
+<!-- .element: class="fragment" -->
+
+Estimação de posição e índice estrutural mais robusto
+<!-- .element: class="fragment" -->
+
+</div>
+
+===============================================================================
+
+# Objetivos futuros
+
+Junção de dados aeromagnéticos e de satélite em escala continental
+<!-- .element: class="fragment" -->
+
+Ponderar diferentes levantamentos com qualidades díspares
+<!-- .element: class="fragment" -->
+
+Aplicar fontes equivalentes a dezenas ou centenas de milhões de dados
+<!-- .element: class="fragment" -->
+
+Realizar estudos paleomagnéticos com microscopia
+<!-- .element: class="fragment" -->
+
+Criar uma biblioteca em Python para microscopia:
+[Magali](https://www.fatiando.org/magali)
+<img src="assets/magali-logo.svg" style="height: 80px; width: auto; margin-bottom: -0.4em;">
+<!-- .element: class="fragment" -->
+
+Inversão de Euler em coordenadas esféricas
+<!-- .element: class="fragment" -->
+
+===============================================================================
+
+<!-- .slide: class="slide-transition" -->
+
 ===============================================================================
 
 <!-- .slide: data-background-image="assets/compgeolab.jpg" data-background-size="contain" data-background-position="bottom" -->
 
-**Obrigado aos estudantes e colaboradores do CompGeoLab**
+# Obrigado aos estudantes <br> e colaboradores do CompGeoLab
 
 <div class="small">
 
@@ -565,7 +613,7 @@ India, Gelson, Santiago, Arthur, Yago, Eros, Ellen, Gabriel, Felipe, Paulo,
 Gabriella, Jefferson
 
 Vanderlei Oliveira Jr., Ricardo Trindade, Richard Holme, Roger Fu,
-<br> Ualisson Bellon, Janine Carmo
+ Ualisson Bellon, Janine Carmo
 
 </div>
 <div class="r-stretch">
