@@ -246,9 +246,149 @@ International. doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359).
 </div>
 <div class="footnote">
 
-Fonte: Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792.v1](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792](https://doi.org/10.6084/m9.figshare.14461792.v1)).
 
 </div>
+
+===============================================================================
+
+# Desafio
+
+Número de dados $N$ grande:
+
+1. <!-- .element: class="fragment" --> Construir e armazenar matrix $N \times N$
+1. <!-- .element: class="fragment" --> Resolver um sistema $N \times N$
+1. <!-- .element: class="fragment" --> $N = 1.000.000$ ➟ 8 Tb de RAM
+1. <!-- .element: class="fragment" --> Um aerolevantamento ➟ $N=500.000$
+   a $N=1.000.000$
+1. <!-- .element: class="fragment" --> Como combinar vários levantamentos?
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/gradient-boosting-start.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote">
+
+Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+
+</div>
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/gradient-boosting-windows.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote">
+
+Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+
+</div>
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/gradient-boosting-residuals.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote">
+
+Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+
+</div>
+
+===============================================================================
+
+<!-- .slide: data-background-image="assets/gradient-boosting-next-window.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote">
+
+Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+
+</div>
+
+===============================================================================
+
+<div class="large">
+
+Repete para todas as janelas sobrepostas
+
+em ordem aleatória
+<!-- .element: class="fragment" -->
+
+</div>
+
+===============================================================================
+
+<div class="row">
+<div class="col">
+
+# Exemplo: Gravidade da Austrália
+
+Gravimetria terrestre
+<!-- .element: class="fragment" -->
+
+~1.7 milhões de pontos
+<!-- .element: class="fragment" -->
+
+Acesso livre (CC-BY)
+<!-- .element: class="fragment" -->
+
+~23 Tb de RAM na implementação clássica
+<!-- .element: class="fragment" -->
+
+</div>
+<div class="col-medium small">
+
+![](assets/australia-ground-gravity.jpg)
+[Wynne (2018)](https://doi.org/10.26186/5C1987FA17078)
+e
+[Uieda (2021)](https://doi.org/10.6084/m9.figshare.13643837).
+
+</div>
+</div>
+
+===============================================================================
+
+<div class="row">
+<div class="col-medium small">
+
+![](assets/australia-gravity-eqsgb.jpg)
+Soler & Uieda (2021; doi:[10.1093/gji/ggab297](https://doi.org/10.1093/gji/ggab297))
+
+</div>
+<div class="col">
+
+# Resultados com gradient-boosted EQS
+
+Interpolação em malha de 1'
+<!-- .element: class="fragment" -->
+
+Continuação para altitude constante
+<!-- .element: class="fragment" -->
+
+~1.5h em computador com 16 Gb de RAM
+<!-- .element: class="fragment" -->
+
+</div>
+</div>
+
+===============================================================================
+
+Zoom no noroeste da Austrália
+
+<div class="small">
+
+![](assets/australia-gravity-eqsgb-zoom.jpg)
+Soler & Uieda (2021; doi:[10.1093/gji/ggab297](https://doi.org/10.1093/gji/ggab297))
+
+</div>
+
+===============================================================================
 
 ===============================================================================
 
