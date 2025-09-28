@@ -235,9 +235,25 @@ International. doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359).
 
 <!-- .slide: data-background-image="assets/fontes-equivalentes-dados.svg" data-background-size="contain" -->
 
+<div class="r-stretch">
+</div>
+<div class="footnote">
+
+Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+
+</div>
+
 ===============================================================================
 
 <!-- .slide: data-background-image="assets/fontes-equivalentes-fontes.svg" data-background-size="contain" -->
+
+<div class="r-stretch">
+</div>
+<div class="footnote">
+
+Soler & Uieda (2021; doi:[10.6084/m9.figshare.14461792](https://doi.org/10.6084/m9.figshare.14461792.v1)).
+
+</div>
 
 ===============================================================================
 
@@ -742,9 +758,285 @@ doi:[10.1093/gji/ggaf114](https://doi.org/10.1093/gji/ggaf114).
 
 ===============================================================================
 
-<!-- .slide: class="slide-transition" -->
+# Deconvolução de Euler
+
+<div class="small">
+
+<img src="assets/euler-conceito-dados.png">
+
+[Uieda et al. (2014)](https://doi.org/10.1190/tle33040448.1).
+
+</div>
+
+===============================================================================
+
+# Deconvolução de Euler
+
+<div class="small">
+
+<img src="assets/euler-conceito.png">
+
+[Uieda et al. (2014)](https://doi.org/10.1190/tle33040448.1).
+
+</div>
+
+===============================================================================
+
+# Problemas
+
+1. <!-- .element: class="fragment" -->
+   Muitas soluções espúrias
+1. <!-- .element: class="fragment" -->
+   Sensível a ruído de alta frequência
+1. <!-- .element: class="fragment" -->
+   Determinação do índice estrutural $\eta$
+1. <!-- .element: class="fragment" -->
+   $\eta$ está correlacionado com a profundidade
+
+===============================================================================
+
+# Equação da homogeneidade de Euler
+
+$ (x - x_o)\partial_x f + (y - y_o)\partial_y f + (z - z_o)\partial_z f + \eta(f - b) = 0 $
+
+$$
+\begin{bmatrix}
+  -\partial_x f_1 & -\partial_y f_1 & -\partial_z f_1 & -\eta \\\\
+  -\partial_x f_2 & -\partial_y f_2 & -\partial_z f_2 & -\eta \\\\
+  \vdots & \vdots & \vdots & \vdots \\\\
+  -\partial_x f_N & -\partial_y f_N & -\partial_z f_N & -\eta
+\end{bmatrix}
+\begin{bmatrix}
+  x_o \\\\ y_o \\\\ z_o \\\\ b
+\end{bmatrix}
+=
+\begin{bmatrix}
+  -x_1\partial_x f_1 - y_1\partial_y f_1 - z_1\partial_z f_1 - \eta f_1 \\\\
+  -x_2\partial_x f_2 - y_2\partial_y f_2 - z_2\partial_z f_2 - \eta f_2 \\\\
+  \vdots \\\\
+  -x_N\partial_x f_N - y_N\partial_y f_N - z_N\partial_z f_N - \eta f_N \\\\
+\end{bmatrix}
+$$ <!-- .element: class="fragment" -->
+
+Derivadas aparecem na Jacobiana
+<!-- .element: class="fragment" -->
+
+===============================================================================
+
+# Inversão de Euler
+
+===============================================================================
+
+<div class="row">
+<div class="col">
+
+Vetor de dados
+
+$$
+\mathbf{d} =
+\begin{bmatrix}
+\mathbf{f} \\\\
+\mathbf{\nabla}_x\mathbf{f} \\\\
+\mathbf{\nabla}_y\mathbf{f} \\\\
+\mathbf{\nabla}_z\mathbf{f}
+\end{bmatrix}
+$$
+
+<div class="fragment">
+
+Equação de Euler
+
+$$
+\mathbf{e}(\mathbf{p}, \mathbf{d}) = \mathbf{0}
+$$
+
+</div>
+</div>
+<div class="col fragment">
+
+Problema inverso vinculado
+
+$$
+\begin{aligned}
+\min_{\mathbf{p}, \mathbf{d}} \quad &
+  \phi(\mathbf{d}) =
+  \left[\mathbf{d}^o - \mathbf{d}\right]^T \mathbf{W}
+  \left[\mathbf{d}^o - \mathbf{d}\right]
+\\\\
+\textrm{subject to} \quad &
+  \mathbf{e}(\mathbf{p}, \mathbf{d}) = \mathbf{0}
+\end{aligned}
+$$
+
+Estima **dados $\mathbf{d}$ e parâmetros $\mathbf{p}$**
+<!-- .element: class="fragment" -->
+
+Inspirado no "ajuste combinado" <br>da geodésia
+<!-- .element: class="fragment" -->
+
+</div>
+</div>
+
+===============================================================================
+
+## Sintéticos
+
+<div class="small">
+
+<img src="assets/euler-eta-dados.png" style="width: 85%">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+## Sintéticos
+
+<div class="small">
+
+<img src="assets/euler-eta-prof.png" style="width: 85%">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+## Sintéticos
+
+<div class="small">
+
+<img src="assets/euler-eta.png" style="width: 85%">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+## Sintéticos
+
+<div class="small">
+
+<img src="assets/euler-janelas-dados.png">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+## Sintéticos
+
+<div class="small">
+
+<img src="assets/euler-janelas-inv.png">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+## Sintéticos
+
+<div class="small">
+
+<img src="assets/euler-janelas.png">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+## Dados aeromagnéticos do Rio de Janeiro
+
+<div class="small fragment">
+
+<img src="assets/euler-dados-geo.png">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+## Dados aeromagnéticos do Rio de Janeiro
+
+<div class="small">
+
+<img src="assets/euler-dados.png">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/euler-dados-sol.png">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/euler-dados-diqus.svg">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/euler-dados-intrusoes.svg">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
+
+<div class="small">
+
+<img src="assets/euler-dados-fd.png">
+
+[Uieda et al. (2025)](https://doi.org/10.1093/gji/ggaf114).
+
+</div>
+
+===============================================================================
 
 # Conclusões
+
+Nova formulação matemática
+<!-- .element: class="fragment" -->
+
+Estima o dado predito junto com os parâmetros
+<!-- .element: class="fragment" -->
+
+Mais robusta a ruído e fontes interferentes
+<!-- .element: class="fragment" -->
+
+Capaz de estimar o índice estrutural
+<!-- .element: class="fragment" -->
+
+Fazer mais comparações com outros métodos
+<!-- .element: class="fragment" -->
+
+===============================================================================
+
+<!-- .slide: class="slide-transition" -->
+
+# Conclusões gerais
 
 ===============================================================================
 
@@ -756,10 +1048,10 @@ Modelagem do campo magnético terrestre
 Fontes equivalentes em larga escala
 <!-- .element: class="fragment" -->
 
-Inversão automática e rápida de dados de microscopia
+Inversão automática e rápida de microscopia
 <!-- .element: class="fragment" -->
 
-Estimação de posição e índice estrutural mais robusto
+Inversão robusta de posição e índice estrutural
 <!-- .element: class="fragment" -->
 
 </div>
@@ -783,6 +1075,9 @@ Realizar estudos paleomagnéticos com microscopia
 Criar uma biblioteca em Python para microscopia:
 [Magali](https://www.fatiando.org/magali)
 <img src="assets/magali-logo.svg" style="height: 80px; width: auto; margin-bottom: -0.4em;">
+<!-- .element: class="fragment" -->
+
+Comparar inversão de Euler com outros métodos
 <!-- .element: class="fragment" -->
 
 Inversão de Euler em coordenadas esféricas
@@ -819,9 +1114,11 @@ Vanderlei Oliveira Jr., Ricardo Trindade, Richard Holme, Roger Fu,
 
 <i class="fas fa-comments"></i>
 <br>
-Contato e mais informações sobre o autor:
+Contato e mais informações:
 <br>
 <a href="https://www.leouieda.com">www.leouieda.com</a>
+<br>
+<a href="https://www.compgeolab.org">www.compgeolab.org</a>
 
 <i class="fab fa-github"></i>
 <br>
@@ -830,10 +1127,6 @@ Código desta apresentação e o texto da tese:
 [github.com/leouieda/livre-docencia](https://github.com/leouieda/livre-docencia)
 
 <i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i>
-<br>
-Unless otherwise noted,
-the contents of this presentation are
-licensed under the
 <br>
 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
