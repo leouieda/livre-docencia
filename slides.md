@@ -215,6 +215,7 @@ PhD IAG/USP
 Soler, S. R. and Uieda, L. (2021). **Gradient-boosted equivalent sources**.
 Geophysical Journal International.
 doi:[10.1093/gji/ggab297](https://doi.org/10.1093/gji/ggab297).
+<!-- .element: class="fragment" -->
 
 Uppal, I., Uieda, L., Oliveira Jr., V. C. and Holme, R. (2025).
 **Transforming Total Field Anomaly into Anomalous Magnetic Field: Using
@@ -390,6 +391,118 @@ Soler & Uieda (2021; doi:[10.1093/gji/ggab297](https://doi.org/10.1093/gji/ggab2
 
 ===============================================================================
 
+# Adaptação para dados aeromagnéticos
+
+===============================================================================
+
+<div class="row">
+<div class="col">
+</div>
+<div class="col-large small">
+
+![](assets/single-layer-synthetic.jpg)
+Uppal et al. (2025; doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359))
+
+</div>
+<div class="col">
+</div>
+</div>
+
+===============================================================================
+
+## Problemas com bordas e curtos comprimentos de onda
+
+<div class="small">
+
+![](assets/single-layer-synthetic-results.jpg)
+Uppal et al. (2025; doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359))
+
+</div>
+
+===============================================================================
+
+# Duas camadas
+
+===============================================================================
+
+<div class="row">
+<div class="col">
+</div>
+<div class="col-large small">
+
+![](assets/dual-layer-exemplo.png)
+Fonte: India Uppal (não publicado)
+
+</div>
+<div class="col">
+</div>
+</div>
+
+===============================================================================
+
+<div class="row">
+<div class="col">
+</div>
+<div class="col-large small">
+
+![](assets/dual-layer-exemplo-deep.png)
+Fonte: India Uppal (não publicado)
+
+</div>
+<div class="col">
+</div>
+</div>
+
+===============================================================================
+
+<div class=" small">
+
+![](assets/dual-layer-exemplo-deep-residuals.png)
+Fonte: India Uppal (não publicado)
+
+</div>
+
+===============================================================================
+
+<div class=" small">
+
+![](assets/dual-layer-exemplo-resultados.png)
+Fonte: India Uppal (não publicado)
+
+</div>
+
+===============================================================================
+
+## Com uma camada
+
+<div class="small">
+
+![](assets/single-layer-synthetic-results.jpg)
+Uppal et al. (2025; doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359))
+
+</div>
+
+===============================================================================
+
+## Com duas camadas
+
+<div class="small">
+
+![](assets/dual-layer-synthetic-results.jpg)
+Uppal et al. (2025; doi:[10.1093/gji/ggaf359](https://doi.org/10.1093/gji/ggaf359))
+
+</div>
+
+===============================================================================
+
+# Conclusões
+
+Fontes equivalentes para modelar milhões de dados
+<!-- .element: class="fragment" -->
+
+Preservar longos e curtos comprimentos de onda
+<!-- .element: class="fragment" -->
+
 ===============================================================================
 
 <!-- .slide: class="slide-transition" -->
@@ -406,6 +519,7 @@ Souza-Junior, G. F., Uieda, L., Trindade, R. I. F., Carmo, J. and Fu, R. R.
 (2024). **Full vector inversion of magnetic microscopy images using Euler
 deconvolution as prior information.** Geochemistry, Geophysics, Geosystems.
 doi:[10.1029/2023GC011082](https://doi.org/10.1029/2023GC011082).
+<!-- .element: class="fragment" -->
 
 Souza-Junior, G. F., Uieda, L., Trindade, R. I. F., Fu, R. R., Bellon, U. D.
 and Castro, Y. M. (2025). **Robust directional analysis of magnetic microscopy
