@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository has moved to Codeberg and will no longer be updated: https://codeberg.org/leouieda/livre-docencia
+
 # Modeling of magnetic field observations from continental to microscopic scale
 
 > Tese apresentada para concurso títulos e provas visando a obtenção do título de Livre Docente junto ao Departamento de Geofísica do Instituto de Astronomia, Geofísica e Ciências Atmosféricas da Universidade de São Paulo. Edital ATAc-IAG/005/2025.
